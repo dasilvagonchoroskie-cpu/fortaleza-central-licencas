@@ -30,13 +30,18 @@ jobs:
           grep -q "var SENHA_PADRAO = '';" www/index.html || { echo "ERRO: a Central nao pode levar senha"; exit 1; }
 
       - name: Preparar Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Preparar Android SDK
-        uses: android-actions/setup-android@v3
+      # O Android ja vem instalado na maquina do GitHub (ANDROID_HOME), como no
+      # taximetro. A peca android-actions/setup-android quebrou em 30/09/2026.
+      - name: Conferir o Android da maquina
+        run: |
+          echo "Android em: $ANDROID_HOME"
+          ls "$ANDROID_HOME/build-tools" | sort -V | tail -3
+          ls "$ANDROID_HOME/platforms" | sort -V | tail -3
 
       - name: Preparar Node.js
         uses: actions/setup-node@v4
