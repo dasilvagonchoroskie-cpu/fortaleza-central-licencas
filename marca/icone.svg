@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><defs>
+  <linearGradient id="fundo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123524"/><stop offset="1" stop-color="#07130D"/></linearGradient>
+  <linearGradient id="escudo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5EEA97"/><stop offset="0.55" stop-color="#22C55E"/><stop offset="1" stop-color="#15803D"/></linearGradient>
+  <linearGradient id="miolo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10291C"/><stop offset="1" stop-color="#081610"/></linearGradient>
+  <linearGradient id="ouro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FDE9A8"/><stop offset="1" stop-color="#D6A548"/></linearGradient>
+  <linearGradient id="brilho" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0.22"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+</defs><rect width="1024" height="1024" rx="220" fill="url(#fundo)"/><g transform="translate(512 512) scale(0.86) translate(-512 -518)">
+  <path d="M512 176 L776 270 V520 C776 690 660 808 512 864 C364 808 248 690 248 520 V270 Z" fill="url(#escudo)"/>
+  <path d="M512 176 L776 270 V520 C776 560 770 598 758 632 L512 176 Z" fill="url(#brilho)"/>
+  <path d="M512 232 L728 309 V522 C728 660 634 758 512 808 C390 758 296 660 296 522 V309 Z" fill="url(#miolo)"/>
+  <circle cx="512" cy="468" r="78" fill="url(#ouro)"/>
+  <path d="M466 520 H558 L590 668 Q591 676 583 676 H441 Q433 676 434 668 Z" fill="url(#ouro)"/>
+  <circle cx="512" cy="468" r="30" fill="#0A1C13"/>
+</g></svg>

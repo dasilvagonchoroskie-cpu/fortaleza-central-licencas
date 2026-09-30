@@ -108,6 +108,11 @@
 .faixa-conexao { margin: 0 0 14px; padding: 10px 12px; border-radius: 10px; font-size: 0.8125rem; line-height: 1.45; background: rgba(255,255,255,0.05); color: var(--texto-fraco); }
 .faixa-conexao.boa { background: rgba(74,222,128,0.10); color: var(--destaque); }
 .faixa-conexao.ruim { background: rgba(245,201,122,0.12); color: var(--alerta); font-weight: 600; }
+.bloco-senha { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
+.bloco-senha h3 { margin: 0 0 4px; font-size: 1rem; }
+.dica { font-size: 0.78rem; color: var(--texto-fraco); margin: 4px 0 0; line-height: 1.45; }
+.novo-codigo { margin-top: 14px; padding: 14px; border-radius: 12px; background: rgba(245,201,122,0.12); color: var(--alerta); text-align: center; }
+.codigo-grande { font-family: monospace; font-size: 1.05rem; letter-spacing: 0.04em; color: #FDE9A8; margin: 10px 0; word-break: break-all; }
 </style>
 </head>
 <body>
@@ -211,7 +216,37 @@
   <button class="btn secundario" type="button" onclick="testarServidor()">Testar a conexão</button>
   <button class="btn secundario" type="button" onclick="fecharAjustes()">Voltar</button>
   <p class="recado" id="recado-ajustes"></p>
-  <p style="font-size:0.75rem;color:var(--texto-fraco);margin-top:18px;">Central de Licenças — versão 2.1, sem senha no APK (30/09/2026)</p>
+  <div class="bloco-senha">
+    <h3>Mudar senha</h3>
+    <p class="dica">Precisa estar conectado. A senha nova vale na hora e a antiga para de valer.</p>
+    <label for="mudar-nova">Senha nova (pelo menos 10 caracteres)</label>
+    <input id="mudar-nova" type="password" autocomplete="new-password">
+    <label for="mudar-repete">Repita a senha nova</label>
+    <input id="mudar-repete" type="password" autocomplete="new-password">
+    <button class="btn secundario" type="button" onclick="mudarSenha()">Mudar a senha</button>
+    <p class="recado" id="recado-mudar"></p>
+  </div>
+
+  <div class="bloco-senha">
+    <h3>Esqueci minha senha</h3>
+    <p class="dica">Use o código de recuperação que você guardou: 5 grupos de 5 letras e números.</p>
+    <label for="recuperar-codigo">Código de recuperação</label>
+    <input id="recuperar-codigo" type="text" autocomplete="off" spellcheck="false" autocapitalize="characters" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX">
+    <label for="recuperar-nova">Senha nova (pelo menos 10 caracteres)</label>
+    <input id="recuperar-nova" type="password" autocomplete="new-password">
+    <label for="recuperar-repete">Repita a senha nova</label>
+    <input id="recuperar-repete" type="password" autocomplete="new-password">
+    <button class="btn secundario" type="button" onclick="recuperarSenha()">Trocar a senha com o código</button>
+    <p class="recado" id="recado-recuperar"></p>
+    <div class="novo-codigo" id="novo-codigo-caixa" style="display:none">
+      <strong>Anote o seu código de recuperação NOVO</strong>
+      <div class="codigo-grande" id="novo-codigo"></div>
+      <button class="btn secundario" type="button" onclick="copiarTexto(document.getElementById('novo-codigo').textContent, 'recado-recuperar')">Copiar código novo</button>
+      <p class="dica">O código antigo não vale mais. Guarde este fora do celular.</p>
+    </div>
+  </div>
+
+  <p style="font-size:0.75rem;color:var(--texto-fraco);margin-top:18px;">Central de Licenças — versão 2.2, com recuperação de senha (30/09/2026)</p>
 </div>
 
 <script>
@@ -254,7 +289,7 @@ function falarComServidor(rota, metodo, corpo) {
   // Primeiro acesso: sem senha salva neste celular, nem pergunta ao servidor.
   if (!senha() && rota.indexOf('/admin') === 0) {
     return Promise.resolve({ ok: false, status: -1,
-      motivo: 'Primeiro acesso: toque em Ajustes, digite a senha de administrador anotada e toque em Salvar.' });
+      motivo: 'Primeiro acesso: toque em Ajustes, digite a senha de administrador e toque em Salvar. Esqueceu? Use "Esqueci minha senha", nos Ajustes.' });
   }
   var opcoes = {
     method: metodo || 'GET',
@@ -283,7 +318,7 @@ function falarComServidor(rota, metodo, corpo) {
 // provavel e aparecia so como "Nao deu para gerar".
 function explicarFalha(r) {
   if (r && (r.status === 401 || r.status === 403)) {
-    return 'O servidor recusou a senha. Toque em Ajustes, digite a senha de administrador anotada e toque em Salvar.';
+    return 'O servidor recusou a senha. Toque em Ajustes e digite a senha certa. Esqueceu? Use "Esqueci minha senha", nos Ajustes.';
   }
   if (r && r.status === -1) return r.motivo;
   if (r && r.status === 0) return 'Sem internet, ou o servidor não respondeu. Ligue os dados e tente de novo.';
@@ -674,6 +709,70 @@ function copiarBackup() {
   var deu = copiarTexto(texto);
   dizer('recado-backup', deu ? 'Cópia copiada. Cole onde quiser guardar.' : 'Não consegui copiar.',
         deu ? 'var(--destaque)' : 'var(--alerta)');
+}
+
+// ===================== SENHA (versao 2.2) =====================
+function conferirSenhaNova(nova, repete, recado) {
+  if (nova.length < 10) { dizer(recado, 'A senha nova precisa ter pelo menos 10 caracteres.', 'var(--alerta)'); return false; }
+  if (nova !== repete) { dizer(recado, 'As duas senhas não estão iguais.', 'var(--alerta)'); return false; }
+  return true;
+}
+
+function passarAUsar(nova) {
+  gravar(GUARDA_SENHA, nova);
+  document.getElementById('ajuste-senha').value = nova;
+  testarServidor();
+  carregarApps();
+}
+
+function mudarSenha() {
+  var nova = document.getElementById('mudar-nova').value;
+  if (!conferirSenhaNova(nova, document.getElementById('mudar-repete').value, 'recado-mudar')) return;
+  dizer('recado-mudar', 'Mudando...');
+  falarComServidor('/admin/trocar-senha', 'POST', { nova_senha: nova }).then(function (r) {
+    if (r && r.ok) {
+      document.getElementById('mudar-nova').value = '';
+      document.getElementById('mudar-repete').value = '';
+      passarAUsar(nova);
+      dizer('recado-mudar', 'Senha trocada. A antiga não vale mais. Guarde a nova num lugar seguro.', 'var(--destaque)');
+    } else {
+      dizer('recado-mudar', explicarFalha(r), 'var(--alerta)');
+    }
+  });
+}
+
+function recuperarSenha() {
+  var codigo = document.getElementById('recuperar-codigo').value;
+  var nova = document.getElementById('recuperar-nova').value;
+  if (codigo.replace(/[^A-Za-z0-9]/g, '').length !== 25) {
+    dizer('recado-recuperar', 'O código tem 25 letras e números (5 grupos de 5).', 'var(--alerta)');
+    return;
+  }
+  if (!conferirSenhaNova(nova, document.getElementById('recuperar-repete').value, 'recado-recuperar')) return;
+  dizer('recado-recuperar', 'Conferindo o código...');
+  falarComServidor('/recuperar-senha', 'POST', { codigo: codigo, nova_senha: nova }).then(function (r) {
+    if (r && r.ok) {
+      ['recuperar-codigo', 'recuperar-nova', 'recuperar-repete'].forEach(function (id) { document.getElementById(id).value = ''; });
+      document.getElementById('novo-codigo').textContent = r.novo_codigo;
+      document.getElementById('novo-codigo-caixa').style.display = 'block';
+      passarAUsar(nova);
+      dizer('recado-recuperar', 'Senha trocada. Agora anote o código novo abaixo.', 'var(--destaque)');
+    } else {
+      dizer('recado-recuperar', (r && r.motivo) || explicarFalha(r), 'var(--alerta)');
+    }
+  });
+}
+
+function copiarTexto(texto, recado) {
+  var avisar = function () { dizer(recado, 'Copiado.', 'var(--destaque)'); };
+  var jeitoAntigo = function () {
+    var campo = document.createElement('textarea');
+    campo.value = texto; document.body.appendChild(campo); campo.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(campo); avisar();
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(texto).then(avisar).catch(jeitoAntigo);
+  else jeitoAntigo();
 }
 
 // ============================= ABERTURA ===========================

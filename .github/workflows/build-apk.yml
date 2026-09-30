@@ -57,6 +57,12 @@ jobs:
       - name: Sincronizar
         run: npx cap sync android
 
+      - name: Aplicar a marca (icone e tela de abertura)
+        run: |
+          python3 -m venv /tmp/marca
+          /tmp/marca/bin/pip install --quiet pillow
+          /tmp/marca/bin/python marca/aplicar-marca.py
+
       - name: Compilar o APK
         working-directory: android
         run: |
