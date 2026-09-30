@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Central de Licenças</title>
+<style>
+  :root {
+    --bg: #0A140D;
+    --painel: #12251A;
+    --borda: #1E3D2A;
+    --destaque: #4ADE80;
+    --texto: #E8F5EC;
+    --texto-fraco: #8AA894;
+    --alerta: #F87171;
+    --aviso: #FBBF24;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  body {
+    margin: 0; background: var(--bg); color: var(--texto);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px; padding-bottom: 40px;
+  }
+  header {
+    padding: 16px 16px 12px; border-bottom: 1px solid var(--borda);
+    display: flex; align-items: center; gap: 10px;
+  }
+  header h1 { font-size: 1rem; margin: 0; flex: 1; }
+  header small { display: block; color: var(--texto-fraco); font-size: 0.6875rem; font-weight: 400; }
+  .btn-engrenagem {
+    background: transparent; border: 1px solid var(--borda); color: var(--texto-fraco);
+    border-radius: 4px; padding: 8px 12px; font-size: 0.8125rem; font-family: inherit;
+  }
+  nav { display: flex; border-bottom: 1px solid var(--borda); }
+  nav button {
+    flex: 1; padding: 14px 4px; background: transparent; border: 0;
+    border-bottom: 2px solid transparent; color: var(--texto-fraco);
+    font-size: 0.875rem; font-family: inherit;
+  }
+  nav button.ativa { color: var(--destaque); border-bottom-color: var(--destaque); font-weight: 600; }
+  main { padding: 16px; }
+  section { display: none; }
+  section.ativa { display: block; }
+  label { display: block; font-size: 0.8125rem; color: var(--texto-fraco); margin: 14px 0 6px; }
+  input, select, textarea {
+    width: 100%; background: var(--painel); border: 1px solid var(--borda);
+    color: var(--texto); padding: 13px; border-radius: 4px;
+    font-size: 0.9375rem; font-family: inherit;
+  }
+  textarea { min-height: 130px; resize: vertical; font-size: 0.75rem; word-break: break-all; }
+  .btn {
+    width: 100%; margin-top: 16px; padding: 15px;
+    background: var(--destaque); border: 0; color: #07160D;
+    border-radius: 4px; font-size: 1rem; font-weight: 700; font-family: inherit;
+  }
+  .btn.secundario {
+    background: transparent; border: 1px solid var(--borda); color: var(--texto);
+    font-weight: 400; font-size: 0.875rem; padding: 12px;
+  }
+  .btn:disabled { opacity: 0.45; }
+  .recado { margin-top: 14px; font-size: 0.875rem; min-height: 1.2em; text-align: center; }
+  .chave-nova {
+    margin-top: 18px; padding: 20px 12px; background: var(--painel);
+    border: 1px solid var(--destaque); border-radius: 6px; text-align: center;
+  }
+  .chave-nova .valor {
+    font-size: 1.375rem; font-weight: 700; letter-spacing: 2px;
+    color: var(--destaque); word-break: break-all; font-variant-numeric: tabular-nums;
+  }
+  .chave-nova .aviso { font-size: 0.75rem; color: var(--texto-fraco); margin-top: 10px; }
+  .cartao {
+    background: var(--painel); border: 1px solid var(--borda);
+    border-radius: 6px; padding: 14px; margin-bottom: 12px;
+  }
+  .cartao .chave {
+    font-size: 1rem; font-weight: 700; letter-spacing: 1px;
+    color: var(--destaque); word-break: break-all;
+  }
+  .cartao .linha { font-size: 0.8125rem; color: var(--texto-fraco); margin-top: 5px; }
+  .selo {
+    display: inline-block; padding: 3px 9px; border-radius: 3px;
+    font-size: 0.6875rem; font-weight: 700; margin-top: 8px;
+  }
+  .selo.livre { background: #1E3D2A; color: var(--destaque); }
+  .selo.usada { background: #33290A; color: var(--aviso); }
+  .selo.bloqueada { background: #3A1616; color: var(--alerta); }
+  .acoes { display: flex; gap: 8px; margin-top: 12px; }
+  .acoes button {
+    flex: 1; padding: 11px 4px; background: transparent;
+    border: 1px solid var(--borda); color: var(--texto);
+    border-radius: 4px; font-size: 0.8125rem; font-family: inherit;
+  }
+  .acoes button.perigo { color: var(--alerta); border-color: #3A1616; }
+  .vazio { text-align: center; color: var(--texto-fraco); font-size: 0.875rem; padding: 40px 10px; }
+  .dica {
+    font-size: 0.75rem; color: var(--texto-fraco);
+    line-height: 1.5; margin-top: 8px;
+  }
+  .selo.vencida { background: #3A1616; color: var(--alerta); }
+  .selo.sem-prazo { background: #1C2A33; color: #7FB8D9; }
+  .marca { text-align: center; font-size: 0.6875rem; color: var(--texto-fraco); margin-top: 28px; }
+  .tela-ajustes {
+    position: fixed; inset: 0; z-index: 50; background: var(--bg);
+    display: none; padding: 20px; overflow-y: auto;
+  }
+  .tela-ajustes.aberta { display: block; }
+  .tela-ajustes h2 { font-size: 1.0625rem; }
+.faixa-conexao { margin: 0 0 14px; padding: 10px 12px; border-radius: 10px; font-size: 0.8125rem; line-height: 1.45; background: rgba(255,255,255,0.05); color: var(--texto-fraco); }
+.faixa-conexao.boa { background: rgba(74,222,128,0.10); color: var(--destaque); }
+.faixa-conexao.ruim { background: rgba(245,201,122,0.12); color: var(--alerta); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Central de Licenças<small>Fortaleza Digital Security</small></h1>
+  <button class="btn-engrenagem" type="button" onclick="abrirAjustes()">Ajustes</button>
+</header>
+
+<nav>
+  <button type="button" class="ativa" data-aba="gerar" onclick="trocarAba('gerar')">Gerar</button>
+  <button type="button" data-aba="licencas" onclick="trocarAba('licencas')">Licenças</button>
+  <button type="button" data-aba="apps" onclick="trocarAba('apps')">Apps</button>
+  <button type="button" data-aba="backup" onclick="trocarAba('backup')">Cópia</button>
+</nav>
+
+<main>
+  <div class="faixa-conexao" id="faixa-conexao">Conferindo a conexão com o servidor...</div>
+
+  <!-- ============================ GERAR ============================ -->
+  <section id="aba-gerar" class="ativa">
+    <label for="gerar-app">Aplicativo</label>
+    <select id="gerar-app"></select>
+
+    <label for="gerar-cliente">Nome do cliente</label>
+    <input id="gerar-cliente" type="text" placeholder="Ex.: Fabiano" autocomplete="off">
+
+    <label for="gerar-obs">Observação (opcional)</label>
+    <input id="gerar-obs" type="text" placeholder="Ex.: indicado pelo Fabiano" autocomplete="off">
+
+    <label for="gerar-prazo">Prazo da licença</label>
+    <select id="gerar-prazo">
+      <option value="0">Sem prazo — pagou tudo</option>
+      <option value="15">Vence em 15 dias</option>
+      <option value="30" selected>Vence em 30 dias</option>
+      <option value="45">Vence em 45 dias</option>
+      <option value="60">Vence em 60 dias</option>
+      <option value="90">Vence em 90 dias</option>
+    </select>
+    <p class="dica">Com prazo, o aplicativo do cliente renova sozinho enquanto você for esticando a data. Se você parar de esticar, ele trava no dia marcado — é assim que a venda parcelada fica protegida. Sem prazo, depois de ativado não dá mais pra revogar.</p>
+
+    <button class="btn" type="button" id="btn-gerar" onclick="gerarChave()">Gerar chave</button>
+    <p class="recado" id="recado-gerar"></p>
+
+    <div class="chave-nova" id="caixa-chave" style="display:none;">
+      <div class="valor" id="chave-valor"></div>
+      <div class="aviso">Vale em um celular só. Mande junto com o aplicativo.</div>
+      <div class="aviso" id="aviso-prazo"></div>
+      <button class="btn secundario" type="button" onclick="copiarChaveNova()">Copiar a chave</button>
+      <button class="btn secundario" type="button" onclick="copiarRecado()">Copiar recado pronto pro WhatsApp</button>
+    </div>
+  </section>
+
+  <!-- =========================== LICENÇAS ========================== -->
+  <section id="aba-licencas">
+    <label for="filtro-app">Mostrar de qual aplicativo</label>
+    <select id="filtro-app" onchange="carregarLicencas()"></select>
+    <button class="btn secundario" type="button" onclick="carregarLicencas()">Atualizar lista</button>
+    <p class="recado" id="recado-licencas"></p>
+    <div id="lista-licencas"></div>
+  </section>
+
+  <!-- ============================= APPS ============================ -->
+  <section id="aba-apps">
+    <div id="lista-apps"></div>
+    <label for="app-id">Apelido curto do aplicativo (sem espaço)</label>
+    <input id="app-id" type="text" placeholder="Ex.: meufrete" autocomplete="off">
+    <label for="app-nome">Nome que aparece pra você</label>
+    <input id="app-nome" type="text" placeholder="Ex.: Meu Frete" autocomplete="off">
+    <button class="btn" type="button" onclick="cadastrarApp()">Cadastrar aplicativo</button>
+    <p class="recado" id="recado-apps"></p>
+  </section>
+
+  <!-- ============================ CÓPIA ============================ -->
+  <section id="aba-backup">
+    <p style="font-size:0.875rem;color:var(--texto-fraco);line-height:1.5;">
+      Isto aqui é a cópia de tudo que está no servidor: aplicativos, chaves e em qual
+      celular cada uma foi usada. Copie e guarde onde quiser. Se um dia o servidor sumir,
+      é com este texto que a gente remonta tudo.
+    </p>
+    <button class="btn" type="button" onclick="baixarCopia()">Buscar a cópia</button>
+    <p class="recado" id="recado-backup"></p>
+    <textarea id="texto-backup" readonly placeholder="A cópia aparece aqui."></textarea>
+    <button class="btn secundario" type="button" onclick="copiarBackup()">Copiar a cópia</button>
+  </section>
+
+  <p class="marca">Fortaleza Digital Security</p>
+</main>
+
+<!-- ============================ AJUSTES ============================ -->
+<div class="tela-ajustes" id="tela-ajustes">
+  <h2>Ajustes</h2>
+  <p style="font-size:0.8125rem;color:var(--texto-fraco);line-height:1.5;">
+    A senha de administrador fica guardada só neste celular. O APK não leva senha nenhuma: se o arquivo vazar, ele sozinho não libera nada.
+  </p>
+  <label for="ajuste-servidor">Endereço do servidor</label>
+  <input id="ajuste-servidor" type="text" autocomplete="off" spellcheck="false">
+  <label for="ajuste-senha">Senha de administrador</label>
+  <input id="ajuste-senha" type="text" autocomplete="off" spellcheck="false">
+  <button class="btn" type="button" onclick="salvarAjustes()">Salvar</button>
+  <button class="btn secundario" type="button" onclick="testarServidor()">Testar a conexão</button>
+  <button class="btn secundario" type="button" onclick="fecharAjustes()">Voltar</button>
+  <p class="recado" id="recado-ajustes"></p>
+  <p style="font-size:0.75rem;color:var(--texto-fraco);margin-top:18px;">Central de Licenças — versão 2.1, sem senha no APK (30/09/2026)</p>
+</div>
+
+<script>
+// ================================================================
+// Central de Licenças — Fortaleza Digital Security
+//
+// Este aplicativo é SÓ SEU. Ele carrega a senha de administrador do
+// servidor de licenças. Não repasse este APK para ninguém.
+// ================================================================
+
+var SERVIDOR_PADRAO = 'https://fortaleza-licencas.fortalezadigitalsecurity.workers.dev';
+var SENHA_PADRAO = ''; // Esta Central NAO leva senha: ela e digitada uma vez nos Ajustes.
+
+var GUARDA_SERVIDOR = 'admin_servidor';
+var GUARDA_SENHA = 'admin_senha';
+
+var chaveNova = '';
+var appDaChaveNova = '';
+var validadeDaChaveNova = '';
+var listaDeApps = [];
+
+function ler(nome, padrao) {
+  try { return localStorage.getItem(nome) || padrao; } catch (e) { return padrao; }
+}
+function gravar(nome, valor) {
+  try { localStorage.setItem(nome, valor); } catch (e) {}
+}
+function servidor() { return ler(GUARDA_SERVIDOR, SERVIDOR_PADRAO).replace(/\/+$/, ''); }
+function senha() { return ler(GUARDA_SENHA, SENHA_PADRAO); }
+
+function dizer(id, texto, cor) {
+  var p = document.getElementById(id);
+  if (!p) return;
+  p.style.color = cor || 'var(--texto-fraco)';
+  p.textContent = texto;
+}
+
+// Toda conversa com o servidor passa por aqui.
+function falarComServidor(rota, metodo, corpo) {
+  // Primeiro acesso: sem senha salva neste celular, nem pergunta ao servidor.
+  if (!senha() && rota.indexOf('/admin') === 0) {
+    return Promise.resolve({ ok: false, status: -1,
+      motivo: 'Primeiro acesso: toque em Ajustes, digite a senha de administrador anotada e toque em Salvar.' });
+  }
+  var opcoes = {
+    method: metodo || 'GET',
+    headers: {
+      'Authorization': 'Bearer ' + senha(),
+      'Content-Type': 'application/json'
+    }
+  };
+  if (corpo) opcoes.body = JSON.stringify(corpo);
+  return fetch(servidor() + rota, opcoes)
+    .then(function (r) {
+      return r.json().then(function (dados) {
+        if (dados && typeof dados === 'object') dados.status = r.status;
+        return dados;
+      }).catch(function () {
+        return { ok: false, status: r.status, motivo: 'O servidor respondeu uma coisa estranha.' };
+      });
+    })
+    .catch(function () {
+      return { ok: false, status: 0, motivo: 'Sem internet, ou o servidor não respondeu.' };
+    });
+}
+
+// ===================== CONEXAO (versao 2.0) =====================
+// Diz em portugues o que deu errado. Senha recusada era a falha mais
+// provavel e aparecia so como "Nao deu para gerar".
+function explicarFalha(r) {
+  if (r && (r.status === 401 || r.status === 403)) {
+    return 'O servidor recusou a senha. Toque em Ajustes, digite a senha de administrador anotada e toque em Salvar.';
+  }
+  if (r && r.status === -1) return r.motivo;
+  if (r && r.status === 0) return 'Sem internet, ou o servidor não respondeu. Ligue os dados e tente de novo.';
+  return (r && r.motivo) || 'O servidor não respondeu direito.';
+}
+
+function mostrarConexao(r) {
+  var faixa = document.getElementById('faixa-conexao');
+  if (!faixa) return;
+  if (r && r.ok) {
+    faixa.textContent = 'Conectado ao servidor de licenças.';
+    faixa.className = 'faixa-conexao boa';
+  } else {
+    faixa.textContent = explicarFalha(r);
+    faixa.className = 'faixa-conexao ruim';
+  }
+}
+
+
+function copiarTexto(texto) {
+  var campo = document.createElement('textarea');
+  campo.value = texto;
+  campo.style.position = 'fixed';
+  campo.style.opacity = '0';
+  document.body.appendChild(campo);
+  campo.select();
+  campo.setSelectionRange(0, 999999);
+  var deu = false;
+  try { deu = document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(campo);
+  return deu;
+}
+
+function dataCurta(iso) {
+  if (!iso) return '';
+  var d = new Date(iso);
+  if (isNaN(d.getTime())) return iso;
+  function dois(n) { return String(n).padStart(2, '0'); }
+  return dois(d.getDate()) + '/' + dois(d.getMonth() + 1) + '/' + d.getFullYear();
+}
+
+// ============================== ABAS ==============================
+function trocarAba(nome) {
+  var botoes = document.querySelectorAll('nav button');
+  for (var i = 0; i < botoes.length; i++) {
+    botoes[i].classList.toggle('ativa', botoes[i].getAttribute('data-aba') === nome);
+  }
+  var secoes = document.querySelectorAll('main section');
+  for (var j = 0; j < secoes.length; j++) {
+    secoes[j].classList.toggle('ativa', secoes[j].id === 'aba-' + nome);
+  }
+  if (nome === 'licencas') carregarLicencas();
+  if (nome === 'apps') carregarApps();
+}
+
+// ============================ AJUSTES =============================
+function abrirAjustes() {
+  document.getElementById('ajuste-servidor').value = servidor();
+  document.getElementById('ajuste-senha').value = senha();
+  document.getElementById('tela-ajustes').classList.add('aberta');
+}
+function fecharAjustes() {
+  document.getElementById('tela-ajustes').classList.remove('aberta');
+}
+function salvarAjustes() {
+  gravar(GUARDA_SERVIDOR, document.getElementById('ajuste-servidor').value.trim());
+  gravar(GUARDA_SENHA, document.getElementById('ajuste-senha').value.trim());
+  dizer('recado-ajustes', 'Salvo. Testando a conexão...');
+  testarServidor();
+  carregarApps();
+}
+function testarServidor() {
+  dizer('recado-ajustes', 'Testando...');
+  falarComServidor('/admin/apps', 'GET').then(function (r) {
+    mostrarConexao(r);
+    if (r && r.ok) dizer('recado-ajustes', 'Conversou certinho com o servidor.', 'var(--destaque)');
+    else dizer('recado-ajustes', explicarFalha(r), 'var(--alerta)');
+  });
+}
+
+// ============================== APPS ==============================
+function carregarApps() {
+  return falarComServidor('/admin/apps', 'GET').then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-apps', (r && r.motivo) || 'Não deu para buscar.', 'var(--alerta)');
+      return;
+    }
+    listaDeApps = r.apps || [];
+    desenharApps();
+    encherListasDeApp();
+  });
+}
+
+function desenharApps() {
+  var alvo = document.getElementById('lista-apps');
+  if (!listaDeApps.length) {
+    alvo.innerHTML = '<p class="vazio">Nenhum aplicativo cadastrado ainda.</p>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < listaDeApps.length; i++) {
+    var a = listaDeApps[i];
+    html += '<div class="cartao"><div class="chave">' + a.nome + '</div>' +
+            '<div class="linha">apelido: ' + a.id + '</div></div>';
+  }
+  alvo.innerHTML = html;
+}
+
+function encherListasDeApp() {
+  var opcoes = '';
+  for (var i = 0; i < listaDeApps.length; i++) {
+    opcoes += '<option value="' + listaDeApps[i].id + '">' + listaDeApps[i].nome + '</option>';
+  }
+  var gerar = document.getElementById('gerar-app');
+  var antes = gerar.value;
+  gerar.innerHTML = opcoes;
+  if (antes) gerar.value = antes;
+
+  var filtro = document.getElementById('filtro-app');
+  var antesF = filtro.value;
+  filtro.innerHTML = '<option value="">Todos</option>' + opcoes;
+  if (antesF) filtro.value = antesF;
+}
+
+function cadastrarApp() {
+  var id = document.getElementById('app-id').value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
+  var nome = document.getElementById('app-nome').value.trim();
+  if (!id || !nome) {
+    dizer('recado-apps', 'Preencha o apelido e o nome.', 'var(--alerta)');
+    return;
+  }
+  dizer('recado-apps', 'Cadastrando...');
+  falarComServidor('/admin/apps', 'POST', { id: id, nome: nome }).then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-apps', (r && r.motivo) || 'Não deu para cadastrar.', 'var(--alerta)');
+      return;
+    }
+    document.getElementById('app-id').value = '';
+    document.getElementById('app-nome').value = '';
+    dizer('recado-apps', 'Cadastrado.', 'var(--destaque)');
+    carregarApps();
+  });
+}
+
+// ============================== GERAR =============================
+function gerarChave() {
+  var appId = document.getElementById('gerar-app').value;
+  var cliente = document.getElementById('gerar-cliente').value.trim();
+  if (!appId) {
+    dizer('recado-gerar', 'Escolha o aplicativo. Se a lista está vazia, vá na aba Apps.', 'var(--alerta)');
+    return;
+  }
+  var botao = document.getElementById('btn-gerar');
+  botao.disabled = true;
+  dizer('recado-gerar', 'Gerando...');
+  document.getElementById('caixa-chave').style.display = 'none';
+
+  falarComServidor('/admin/gerar', 'POST', {
+    app_id: appId,
+    cliente: cliente,
+    observacao: document.getElementById('gerar-obs').value.trim(),
+    dias: Number(document.getElementById('gerar-prazo').value) || 0
+  }).then(function (r) {
+    botao.disabled = false;
+    if (!r || !r.ok || !r.chave) {
+      dizer('recado-gerar', explicarFalha(r), 'var(--alerta)');
+      if (r && (r.status === 0 || r.status === 401 || r.status === 403)) mostrarConexao(r);
+      return;
+    }
+    chaveNova = r.chave;
+    appDaChaveNova = appId;
+    validadeDaChaveNova = r.validade || '';
+    document.getElementById('chave-valor').textContent = r.chave;
+    document.getElementById('caixa-chave').style.display = 'block';
+    document.getElementById('aviso-prazo').textContent = validadeDaChaveNova
+      ? 'Vence em ' + dataCurta(validadeDaChaveNova) + '. Estique o prazo quando ele pagar.'
+      : 'Sem prazo. Depois de ativada não dá pra revogar.';
+    dizer('recado-gerar', 'Chave criada e guardada no servidor.', 'var(--destaque)');
+    document.getElementById('gerar-cliente').value = '';
+    document.getElementById('gerar-obs').value = '';
+  });
+}
+
+function copiarChaveNova() {
+  if (!chaveNova) return;
+  var deu = copiarTexto(chaveNova);
+  dizer('recado-gerar', deu ? 'Chave copiada.' : 'Não consegui copiar.',
+        deu ? 'var(--destaque)' : 'var(--alerta)');
+}
+
+function copiarRecado() {
+  if (!chaveNova) return;
+  var nome = '';
+  for (var i = 0; i < listaDeApps.length; i++) {
+    if (listaDeApps[i].id === appDaChaveNova) nome = listaDeApps[i].nome;
+  }
+  var linhaPrazo = validadeDaChaveNova
+    ? '\nSeu acesso está liberado até ' + dataCurta(validadeDaChaveNova) +
+      '. Mantendo o pagamento em dia, ele renova sozinho, sem você precisar fazer nada.\n'
+    : '';
+  var texto =
+    'Segue o aplicativo ' + (nome || appDaChaveNova) + '.\n\n' +
+    'Sua chave de ativação:\n' + chaveNova + '\n\n' +
+    'Instale o arquivo e abra o aplicativo. Copie a chave acima, toque em "Colar chave" ' +
+    '(ou digite a chave) e depois em "Ativar aparelho". ' +
+    'Precisa estar com a internet ligada só nessa hora.\n\n' +
+    'A chave vale num celular só.\n' + linhaPrazo + '\n' +
+    'Fortaleza Digital Security';
+  var deu = copiarTexto(texto);
+  dizer('recado-gerar', deu ? 'Recado copiado. Agora é só colar no WhatsApp.' : 'Não consegui copiar.',
+        deu ? 'var(--destaque)' : 'var(--alerta)');
+}
+
+// ============================ LICENÇAS ============================
+function carregarLicencas() {
+  var appId = document.getElementById('filtro-app').value;
+  dizer('recado-licencas', 'Buscando...');
+  var rota = '/admin/licencas' + (appId ? '?app_id=' + encodeURIComponent(appId) : '');
+  falarComServidor(rota, 'GET').then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-licencas', (r && r.motivo) || 'Não deu para buscar.', 'var(--alerta)');
+      return;
+    }
+    dizer('recado-licencas', '');
+    desenharLicencas(r.licencas || []);
+  });
+}
+
+function desenharLicencas(lista) {
+  var alvo = document.getElementById('lista-licencas');
+  if (!lista.length) {
+    alvo.innerHTML = '<p class="vazio">Nenhuma chave por aqui ainda.</p>';
+    return;
+  }
+  var html = '';
+  for (var i = 0; i < lista.length; i++) {
+    var l = lista[i];
+    var vencida = l.validade && new Date(l.validade).getTime() <= Date.now();
+    var selo, classe;
+    if (l.bloqueada) { selo = 'BLOQUEADA'; classe = 'bloqueada'; }
+    else if (vencida) { selo = 'VENCIDA'; classe = 'vencida'; }
+    else if (l.aparelho) { selo = 'EM USO'; classe = 'usada'; }
+    else { selo = 'LIVRE'; classe = 'livre'; }
+
+    html += '<div class="cartao">';
+    html += '<div class="chave">' + l.chave + '</div>';
+    if (l.cliente) html += '<div class="linha">Cliente: ' + l.cliente + '</div>';
+    if (l.observacao) html += '<div class="linha">' + l.observacao + '</div>';
+    html += '<div class="linha">Aplicativo: ' + l.app_id + ' &middot; criada em ' + dataCurta(l.criada_em) + '</div>';
+    if (l.aparelho) {
+      html += '<div class="linha">Celular: ' + l.aparelho + '</div>';
+      html += '<div class="linha">Ativada em ' + dataCurta(l.ativada_em) + '</div>';
+    }
+    html += '<div class="linha">' + (l.validade
+      ? (vencida ? 'Venceu em ' : 'Vence em ') + dataCurta(l.validade)
+      : 'Sem prazo — não dá pra revogar') + '</div>';
+    html += '<span class="selo ' + classe + '">' + selo + '</span>';
+    if (!l.validade) html += ' <span class="selo sem-prazo">SEM PRAZO</span>';
+
+    html += '<div class="acoes">';
+    html += '<button type="button" onclick="prazo(\'' + l.chave + '\', 15)">+15 dias</button>';
+    html += '<button type="button" onclick="prazo(\'' + l.chave + '\', 30)">+30 dias</button>';
+    html += '<button type="button" onclick="prazo(\'' + l.chave + '\', 0)">Tirar prazo</button>';
+    html += '</div>';
+
+    html += '<div class="acoes">';
+    if (l.aparelho) {
+      html += '<button type="button" onclick="soltar(\'' + l.chave + '\')">Soltar do celular</button>';
+    }
+    html += '<button type="button" class="perigo" onclick="bloquear(\'' + l.chave + '\',' +
+            (l.bloqueada ? 'false' : 'true') + ')">' +
+            (l.bloqueada ? 'Desbloquear' : 'Bloquear') + '</button>';
+    html += '</div>';
+
+    html += '<div class="acoes">';
+    html += '<button type="button" class="perigo" onclick="vencerAgora(\'' + l.chave + '\')">Revogar agora</button>';
+    html += '<button type="button" class="perigo" onclick="excluir(\'' + l.chave + '\')">Excluir chave</button>';
+    html += '</div></div>';
+  }
+  alvo.innerHTML = html;
+}
+
+// Estica o prazo ou tira de vez. Esticar conta a partir do vencimento
+// atual, entao apertar duas vezes soma.
+function prazo(chave, dias) {
+  var pergunta = dias > 0
+    ? 'Esticar ' + dias + ' dias no prazo da chave ' + chave + '?'
+    : 'Tirar o prazo da chave ' + chave + '?\n\nEla passa a valer pra sempre, e depois disso não dá mais pra revogar.';
+  if (!confirm(pergunta)) return;
+  dizer('recado-licencas', 'Mudando o prazo...');
+  falarComServidor('/admin/prazo', 'POST', { chave: chave, dias: dias }).then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-licencas', (r && r.motivo) || 'Não deu certo.', 'var(--alerta)');
+      return;
+    }
+    dizer('recado-licencas', r.validade
+      ? 'Novo vencimento: ' + dataCurta(r.validade)
+      : 'Licença agora está sem prazo.', 'var(--destaque)');
+    carregarLicencas();
+  });
+}
+
+// Revoga de verdade: o prazo passa a ser agora. O aplicativo do cliente
+// trava na proxima vez que abrir, com ou sem internet, porque ele
+// confere a data sozinho.
+function vencerAgora(chave) {
+  if (!confirm('REVOGAR a chave ' + chave + ' agora?\n\n' +
+               'O aplicativo do cliente trava na próxima vez que ele abrir, ' +
+               'mesmo sem internet.\n\n' +
+               'Dá pra desfazer depois com os botões de prazo.')) return;
+  dizer('recado-licencas', 'Revogando...');
+  falarComServidor('/admin/prazo', 'POST', { chave: chave, vencer: true }).then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-licencas', (r && r.motivo) || 'Não deu certo.', 'var(--alerta)');
+      return;
+    }
+    dizer('recado-licencas', 'Revogada. O aplicativo trava na próxima abertura.', 'var(--destaque)');
+    carregarLicencas();
+  });
+}
+
+// Apaga a chave do servidor de vez.
+function excluir(chave) {
+  if (!confirm('APAGAR a chave ' + chave + '?\n\n' +
+               'Isso não dá pra desfazer.\n\n' +
+               'Se ela nunca foi usada, some e pronto. Se já estava num celular ' +
+               'COM PRAZO, aquele aplicativo trava quando o prazo acabar. ' +
+               'SEM PRAZO, quem já ativou continua usando.')) return;
+  dizer('recado-licencas', 'Apagando...');
+  falarComServidor('/admin/excluir', 'POST', { chave: chave }).then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-licencas', (r && r.motivo) || 'Não deu certo.', 'var(--alerta)');
+      return;
+    }
+    dizer('recado-licencas', 'Chave apagada.', 'var(--destaque)');
+    carregarLicencas();
+  });
+}
+
+function soltar(chave) {
+  if (!confirm('Soltar a chave ' + chave + ' do celular atual?\n\nEla volta a valer e pode ser ativada em outro aparelho.')) return;
+  dizer('recado-licencas', 'Soltando...');
+  falarComServidor('/admin/soltar', 'POST', { chave: chave }).then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-licencas', (r && r.motivo) || 'Não deu certo.', 'var(--alerta)');
+      return;
+    }
+    carregarLicencas();
+  });
+}
+
+function bloquear(chave, bloquear) {
+  var pergunta = bloquear
+    ? 'Bloquear a chave ' + chave + '?\n\nSe a licença tem prazo, o aplicativo trava assim que tentar renovar. Se não tem prazo, o bloqueio só vale pra uma ativação nova.'
+    : 'Desbloquear a chave ' + chave + '?';
+  if (!confirm(pergunta)) return;
+  dizer('recado-licencas', 'Mudando...');
+  falarComServidor('/admin/bloquear', 'POST', { chave: chave, bloquear: bloquear }).then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-licencas', (r && r.motivo) || 'Não deu certo.', 'var(--alerta)');
+      return;
+    }
+    carregarLicencas();
+  });
+}
+
+// ============================== CÓPIA =============================
+function baixarCopia() {
+  dizer('recado-backup', 'Buscando...');
+  falarComServidor('/admin/backup', 'GET').then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-backup', (r && r.motivo) || 'Não deu para buscar.', 'var(--alerta)');
+      return;
+    }
+    document.getElementById('texto-backup').value = JSON.stringify(r, null, 2);
+    dizer('recado-backup',
+      'Cópia de ' + (r.apps || []).length + ' aplicativo(s) e ' + (r.licencas || []).length + ' chave(s).',
+      'var(--destaque)');
+  });
+}
+
+function copiarBackup() {
+  var texto = document.getElementById('texto-backup').value;
+  if (!texto) {
+    dizer('recado-backup', 'Busque a cópia primeiro.', 'var(--alerta)');
+    return;
+  }
+  var deu = copiarTexto(texto);
+  dizer('recado-backup', deu ? 'Cópia copiada. Cole onde quiser guardar.' : 'Não consegui copiar.',
+        deu ? 'var(--destaque)' : 'var(--alerta)');
+}
+
+// ============================= ABERTURA ===========================
+carregarApps();
+falarComServidor('/admin/apps', 'GET').then(mostrarConexao);
+</script>
+</body>
+</html>

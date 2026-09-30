@@ -1,0 +1,9 @@
+{
+  "appId": "br.com.fortalezadigitalsecurity.licencas",
+  "appName": "Central de Licenças",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "useLegacyBridge": true
+  }
+}

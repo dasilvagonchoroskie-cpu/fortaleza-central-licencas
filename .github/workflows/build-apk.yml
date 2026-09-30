@@ -1,0 +1,97 @@
+name: Montar APK da Central de Licencas
+
+# Central de Licencas SEM senha dentro do APK: a senha de administrador e
+# digitada uma vez no celular (Ajustes). Por isso este repositorio pode ser
+# publico. A esteira confere que nenhuma senha foi parar no APK.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  montar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Baixar o codigo
+        uses: actions/checkout@v4
+
+      - name: Conferir que o servidor de licencas esta no ar
+        run: |
+          RESP=$(curl -s -o corpo.txt -w '%{http_code}' -X POST -H 'Content-Type: application/json' \
+            -d '{"chave":"AAAA-BBBB-CCCC-DDDD","app_id":"taximetro","aparelho":"YJPJ-P7EA-DG7B-5BEJ"}' \
+            https://fortaleza-licencas.fortalezadigitalsecurity.workers.dev/ativar || echo 000)
+          echo "Servidor respondeu HTTP $RESP: $(head -c 200 corpo.txt)"
+          if [ "$RESP" != "404" ]; then echo "ERRO: o servidor de licencas nao respondeu como esperado"; exit 1; fi
+
+      - name: Conferir que nao ha senha no codigo
+        run: |
+          grep -q "var SENHA_PADRAO = '';" www/index.html || { echo "ERRO: a Central nao pode levar senha"; exit 1; }
+
+      - name: Preparar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Preparar Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar dependencias
+        run: npm install
+
+      - name: Criar o projeto Android
+        run: npx cap add android
+
+      - name: Sincronizar
+        run: npx cap sync android
+
+      - name: Compilar o APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease
+
+      - name: Assinar com a chave da Central
+        env:
+          CHAVE: ${{ secrets.CENTRAL_KEYSTORE_BASE64 }}
+          SENHA: ${{ secrets.CENTRAL_KEYSTORE_SENHA }}
+        run: |
+          if [ -z "$CHAVE" ] || [ -z "$SENHA" ]; then echo "ERRO: faltam os segredos da chave da Central"; exit 1; fi
+          echo "$CHAVE" | base64 -d > "$RUNNER_TEMP/central.p12"
+          BT=$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)
+          ENTRADA=$(ls android/app/build/outputs/apk/release/*.apk | head -1)
+          mkdir -p saida
+          "$ANDROID_HOME/build-tools/$BT/zipalign" -f -p 4 "$ENTRADA" saida/alinhado.apk
+          "$ANDROID_HOME/build-tools/$BT/apksigner" sign --ks "$RUNNER_TEMP/central.p12" --ks-type PKCS12 \
+            --ks-pass env:SENHA --ks-key-alias central --key-pass env:SENHA \
+            --out saida/central-de-licencas.apk saida/alinhado.apk
+          "$ANDROID_HOME/build-tools/$BT/apksigner" verify --print-certs saida/central-de-licencas.apk | head -3
+          rm -f saida/alinhado.apk "$RUNNER_TEMP/central.p12"
+
+      - name: Conferir que o APK nao leva senha (senao nao publica)
+        run: |
+          unzip -p saida/central-de-licencas.apk assets/public/index.html > pagina.html
+          grep -q "var SENHA_PADRAO = '';" pagina.html || { echo "ERRO: achei senha dentro do APK. Nao publico."; exit 1; }
+          echo "APK sem senha: conferido."
+
+      - name: Guardar o APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: central-de-licencas-apk
+          path: saida/central-de-licencas.apk
+
+      - name: Publicar como Release (link direto)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: apk-mais-recente
+          name: Central de Licencas - versao mais recente
+          body: Central de Licencas sem senha dentro do APK. Na primeira vez, digite a senha de administrador em Ajustes. Uso interno.
+          files: saida/central-de-licencas.apk
+          prerelease: true
