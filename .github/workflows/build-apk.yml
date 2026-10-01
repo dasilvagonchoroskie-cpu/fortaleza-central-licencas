@@ -54,6 +54,23 @@ jobs:
       - name: Criar o projeto Android
         run: npx cap add android
 
+      # A versao mora num lugar so (package.json). Aqui ela e carimbada no
+      # Android (o que aparece nas Configuracoes do celular) e na tela de
+      # Ajustes. Antes o Android ficava sempre no "1.0" de fabrica.
+      - name: Carimbar a versao (no Android e na tela de Ajustes)
+        run: |
+          VERSAO=$(node -p "require('./package.json').version")
+          VERSAO=${VERSAO%.0}
+          CODIGO=$((100 + ${{ github.run_number }}))
+          DATA=$(TZ=America/Sao_Paulo date +%d/%m/%Y)
+          sed -i "s/versionCode [0-9][0-9]*/versionCode $CODIGO/; s/versionName \"[^\"]*\"/versionName \"$VERSAO\"/" android/app/build.gradle
+          grep -n "versionCode\|versionName" android/app/build.gradle
+          grep -q "versionName \"$VERSAO\"" android/app/build.gradle || { echo "ERRO: nao consegui carimbar a versao no Android"; exit 1; }
+          sed -i "s|@@VERSAO@@|$VERSAO (montagem $CODIGO, $DATA)|" www/index.html
+          if grep -q "@@VERSAO@@" www/index.html; then echo "ERRO: sobrou o marcador de versao na tela"; exit 1; fi
+          echo "VERSAO_APP=$VERSAO" >> "$GITHUB_ENV"
+          echo "Versao $VERSAO, codigo $CODIGO, data $DATA"
+
       - name: Sincronizar
         run: npx cap sync android
 
@@ -85,6 +102,13 @@ jobs:
             --out saida/central-de-licencas.apk saida/alinhado.apk
           "$ANDROID_HOME/build-tools/$BT/apksigner" verify --print-certs saida/central-de-licencas.apk | head -3
           rm -f saida/alinhado.apk "$RUNNER_TEMP/central.p12"
+
+      - name: Conferir a versao dentro do APK pronto (senao nao publica)
+        run: |
+          BT=$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)
+          LINHA=$("$ANDROID_HOME/build-tools/$BT/aapt2" dump badging saida/central-de-licencas.apk | head -1)
+          echo "$LINHA"
+          echo "$LINHA" | grep -q "versionName='$VERSAO_APP'" || { echo "ERRO: o APK nao saiu com a versao $VERSAO_APP"; exit 1; }
 
       - name: Conferir que o APK nao leva senha (senao nao publica)
         run: |

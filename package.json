@@ -1,6 +1,6 @@
 {
   "name": "central-de-licencas",
-  "version": "1.0.0",
+  "version": "2.2.0",
   "description": "Administracao de licencas - Fortaleza Digital Security",
   "scripts": {
     "build": "echo 'nada a compilar - html estatico'"
