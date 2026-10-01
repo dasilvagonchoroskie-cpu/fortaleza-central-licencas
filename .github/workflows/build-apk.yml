@@ -51,6 +51,16 @@ jobs:
       - name: Instalar dependencias
         run: npm install
 
+      # A tela roda num navegador simulado antes de montar: copiar, recado,
+      # WhatsApp e escolha do aplicativo. Se falhar, o APK nao sai.
+      - name: Testar a tela (copiar, recado e WhatsApp)
+        run: |
+          set -o pipefail
+          if ! node scripts/teste-tela.mjs 2>&1 | grep -v "Not implemented" | tee teste-tela.log; then
+            grep "FALHA" teste-tela.log | head -20 | while IFS= read -r l; do echo "::error title=teste da tela::$l"; done
+            exit 1
+          fi
+
       - name: Criar o projeto Android
         run: npx cap add android
 
@@ -73,6 +83,12 @@ jobs:
 
       - name: Sincronizar
         run: npx cap sync android
+
+      # Sem o plugin da area de transferencia, o "Copiar" volta a falhar.
+      - name: Conferir o plugin de copiar dentro do projeto Android
+        run: |
+          grep -q "capacitor-clipboard" android/capacitor.settings.gradle || { echo "ERRO: o plugin Clipboard nao entrou no APK"; exit 1; }
+          echo "Plugin Clipboard: conferido."
 
       - name: Aplicar a marca (icone e tela de abertura)
         run: |

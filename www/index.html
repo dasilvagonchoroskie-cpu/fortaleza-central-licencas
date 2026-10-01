@@ -158,11 +158,17 @@
     <p class="recado" id="recado-gerar"></p>
 
     <div class="chave-nova" id="caixa-chave" style="display:none;">
+      <div class="aviso" id="aviso-app"></div>
       <div class="valor" id="chave-valor"></div>
-      <div class="aviso">Vale em um celular só. Mande junto com o aplicativo.</div>
+      <div class="aviso">Vale em um celular só.</div>
       <div class="aviso" id="aviso-prazo"></div>
-      <button class="btn secundario" type="button" onclick="copiarChaveNova()">Copiar a chave</button>
-      <button class="btn secundario" type="button" onclick="copiarRecado()">Copiar recado pronto pro WhatsApp</button>
+      <label for="gerar-fone">WhatsApp do cliente (opcional, com DDD)</label>
+      <input id="gerar-fone" type="tel" inputmode="tel" placeholder="Ex.: 64 99999-8888" autocomplete="off">
+      <p class="dica">Com o número, o WhatsApp já abre na conversa dele. Sem o número, você escolhe o contato.</p>
+      <button class="btn" type="button" onclick="mandarPeloWhatsApp()">Mandar pelo WhatsApp</button>
+      <div class="aviso" id="aviso-link"></div>
+      <button class="btn secundario" type="button" onclick="copiarRecado()">Copiar o recado</button>
+      <button class="btn secundario" type="button" onclick="copiarChaveNova()">Copiar só a chave</button>
     </div>
   </section>
 
@@ -177,12 +183,16 @@
 
   <!-- ============================= APPS ============================ -->
   <section id="aba-apps">
+    <p class="dica">Atualizar um aplicativo (versão nova) <strong>não</strong> precisa de cadastro novo: as chaves continuam valendo no mesmo cadastro. Só cadastre um aplicativo diferente, com o apelido que vem dentro dele.</p>
     <div id="lista-apps"></div>
-    <label for="app-id">Apelido curto do aplicativo (sem espaço)</label>
-    <input id="app-id" type="text" placeholder="Ex.: meufrete" autocomplete="off">
+    <label for="app-id">Apelido do aplicativo (vem dentro do app, sem espaço)</label>
+    <input id="app-id" type="text" placeholder="Ex.: meufrete" autocomplete="off" autocapitalize="none" spellcheck="false">
     <label for="app-nome">Nome que aparece pra você</label>
     <input id="app-nome" type="text" placeholder="Ex.: Meu Frete" autocomplete="off">
-    <button class="btn" type="button" onclick="cadastrarApp()">Cadastrar aplicativo</button>
+    <label for="app-link">Link de download do APK (opcional, começa com https://)</label>
+    <input id="app-link" type="url" placeholder="https://..." autocomplete="off" autocapitalize="none" spellcheck="false">
+    <button class="btn" type="button" onclick="cadastrarApp()">Salvar aplicativo</button>
+    <button class="btn secundario" type="button" onclick="limparFormApp()">Limpar</button>
     <p class="recado" id="recado-apps"></p>
   </section>
 
@@ -253,8 +263,8 @@
 // ================================================================
 // Central de Licenças — Fortaleza Digital Security
 //
-// Este aplicativo é SÓ SEU. Ele carrega a senha de administrador do
-// servidor de licenças. Não repasse este APK para ninguém.
+// Este aplicativo é SÓ SEU. Ele não leva senha dentro: a senha de
+// administrador é digitada uma vez nos Ajustes. Não repasse este APK.
 // ================================================================
 
 var SERVIDOR_PADRAO = 'https://fortaleza-licencas.fortalezadigitalsecurity.workers.dev';
@@ -266,6 +276,9 @@ var GUARDA_SENHA = 'admin_senha';
 var chaveNova = '';
 var appDaChaveNova = '';
 var validadeDaChaveNova = '';
+var nomeDaChaveNova = '';
+var linkDaChaveNova = '';
+var clienteDaChaveNova = '';
 var listaDeApps = [];
 
 function ler(nome, padrao) {
@@ -338,20 +351,6 @@ function mostrarConexao(r) {
 }
 
 
-function copiarTexto(texto) {
-  var campo = document.createElement('textarea');
-  campo.value = texto;
-  campo.style.position = 'fixed';
-  campo.style.opacity = '0';
-  document.body.appendChild(campo);
-  campo.select();
-  campo.setSelectionRange(0, 999999);
-  var deu = false;
-  try { deu = document.execCommand('copy'); } catch (e) {}
-  document.body.removeChild(campo);
-  return deu;
-}
-
 function dataCurta(iso) {
   if (!iso) return '';
   var d = new Date(iso);
@@ -421,21 +420,44 @@ function desenharApps() {
   var html = '';
   for (var i = 0; i < listaDeApps.length; i++) {
     var a = listaDeApps[i];
-    html += '<div class="cartao"><div class="chave">' + a.nome + '</div>' +
-            '<div class="linha">apelido: ' + a.id + '</div></div>';
+    var n = Number(a.chaves) || 0;
+    html += '<div class="cartao"><div class="chave">' + escapar(a.nome) + '</div>' +
+            '<div class="linha">apelido: ' + escapar(a.id) + ' &middot; ' + n + (n === 1 ? ' chave' : ' chaves') + '</div>' +
+            '<div class="linha">' + (a.link ? 'Link do APK: ' + escapar(a.link) : 'Sem link de download — o APK vai à parte.') + '</div>' +
+            '<div class="acoes"><button type="button" onclick="editarApp(' + i + ')">Editar</button>' +
+            (n === 0 ? '<button type="button" class="perigo" onclick="apagarApp(' + i + ')">Apagar</button>' : '') +
+            '</div></div>';
   }
   alvo.innerHTML = html;
 }
 
+function escapar(t) {
+  return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+function nomeDoApp(id) {
+  for (var i = 0; i < listaDeApps.length; i++) if (listaDeApps[i].id === id) return listaDeApps[i].nome;
+  return id;
+}
+
+function linkDoApp(id) {
+  for (var i = 0; i < listaDeApps.length; i++) if (listaDeApps[i].id === id) return listaDeApps[i].link || '';
+  return '';
+}
+
+// Com um aplicativo so, ele ja vem escolhido. Com mais de um, a lista
+// comeca em "Escolha o aplicativo": nunca mais gera chave para o app que
+// por acaso estava em primeiro (foi o defeito de 01/10/2026).
 function encherListasDeApp() {
   var opcoes = '';
   for (var i = 0; i < listaDeApps.length; i++) {
-    opcoes += '<option value="' + listaDeApps[i].id + '">' + listaDeApps[i].nome + '</option>';
+    opcoes += '<option value="' + escapar(listaDeApps[i].id) + '">' + escapar(listaDeApps[i].nome) + '</option>';
   }
   var gerar = document.getElementById('gerar-app');
-  var antes = gerar.value;
-  gerar.innerHTML = opcoes;
-  if (antes) gerar.value = antes;
+  gerar.innerHTML = (listaDeApps.length === 1 ? '' : '<option value="">Escolha o aplicativo</option>') + opcoes;
+  gerar.value = listaDeApps.length === 1 ? listaDeApps[0].id : '';
 
   var filtro = document.getElementById('filtro-app');
   var antesF = filtro.value;
@@ -443,22 +465,55 @@ function encherListasDeApp() {
   if (antesF) filtro.value = antesF;
 }
 
+function limparFormApp() {
+  ['app-id', 'app-nome', 'app-link'].forEach(function (id) { document.getElementById(id).value = ''; });
+  document.getElementById('app-id').readOnly = false;
+  dizer('recado-apps', '');
+}
+
+function editarApp(i) {
+  var a = listaDeApps[i];
+  document.getElementById('app-id').value = a.id;
+  document.getElementById('app-id').readOnly = true;
+  document.getElementById('app-nome').value = a.nome;
+  document.getElementById('app-link').value = a.link || '';
+  dizer('recado-apps', 'Editando "' + a.nome + '". Mude o nome ou o link e toque em Salvar.');
+  document.getElementById('app-nome').focus();
+}
+
+function apagarApp(i) {
+  var a = listaDeApps[i];
+  if (!confirm('Apagar o aplicativo "' + a.nome + '"? Ele não tem nenhuma chave.')) return;
+  falarComServidor('/admin/apps/excluir', 'POST', { id: a.id }).then(function (r) {
+    if (!r || !r.ok) {
+      dizer('recado-apps', (r && r.motivo) || 'Não deu para apagar.', 'var(--alerta)');
+      return;
+    }
+    dizer('recado-apps', 'Apagado.', 'var(--destaque)');
+    carregarApps();
+  });
+}
+
 function cadastrarApp() {
   var id = document.getElementById('app-id').value.trim().toLowerCase().replace(/[^a-z0-9-]/g, '');
   var nome = document.getElementById('app-nome').value.trim();
+  var link = document.getElementById('app-link').value.trim();
   if (!id || !nome) {
     dizer('recado-apps', 'Preencha o apelido e o nome.', 'var(--alerta)');
     return;
   }
-  dizer('recado-apps', 'Cadastrando...');
-  falarComServidor('/admin/apps', 'POST', { id: id, nome: nome }).then(function (r) {
+  if (link && !/^https:\/\//i.test(link)) {
+    dizer('recado-apps', 'O link tem que começar com https://', 'var(--alerta)');
+    return;
+  }
+  dizer('recado-apps', 'Salvando...');
+  falarComServidor('/admin/apps', 'POST', { id: id, nome: nome, link: link }).then(function (r) {
     if (!r || !r.ok) {
-      dizer('recado-apps', (r && r.motivo) || 'Não deu para cadastrar.', 'var(--alerta)');
+      dizer('recado-apps', (r && r.motivo) || 'Não deu para salvar.', 'var(--alerta)');
       return;
     }
-    document.getElementById('app-id').value = '';
-    document.getElementById('app-nome').value = '';
-    dizer('recado-apps', 'Cadastrado.', 'var(--destaque)');
+    limparFormApp();
+    dizer('recado-apps', 'Salvo.', 'var(--destaque)');
     carregarApps();
   });
 }
@@ -491,45 +546,91 @@ function gerarChave() {
     chaveNova = r.chave;
     appDaChaveNova = appId;
     validadeDaChaveNova = r.validade || '';
+    nomeDaChaveNova = r.app_nome || nomeDoApp(appId);
+    linkDaChaveNova = r.link || linkDoApp(appId);
+    document.getElementById('aviso-app').textContent = 'Chave do aplicativo ' + nomeDaChaveNova;
+    document.getElementById('aviso-link').textContent = linkDaChaveNova
+      ? 'O recado já leva o link para baixar o aplicativo.'
+      : 'Este aplicativo não tem link de download cadastrado (aba Apps): mande o APK junto.';
     document.getElementById('chave-valor').textContent = r.chave;
     document.getElementById('caixa-chave').style.display = 'block';
     document.getElementById('aviso-prazo').textContent = validadeDaChaveNova
       ? 'Vence em ' + dataCurta(validadeDaChaveNova) + '. Estique o prazo quando ele pagar.'
       : 'Sem prazo. Depois de ativada não dá pra revogar.';
     dizer('recado-gerar', 'Chave criada e guardada no servidor.', 'var(--destaque)');
+    clienteDaChaveNova = cliente;
+    document.getElementById('gerar-fone').value = '';
     document.getElementById('gerar-cliente').value = '';
     document.getElementById('gerar-obs').value = '';
+    // A proxima chave pede de novo a escolha do app (quando ha mais de um).
+    if (listaDeApps.length > 1) document.getElementById('gerar-app').value = '';
   });
 }
 
 function copiarChaveNova() {
   if (!chaveNova) return;
-  var deu = copiarTexto(chaveNova);
-  dizer('recado-gerar', deu ? 'Chave copiada.' : 'Não consegui copiar.',
-        deu ? 'var(--destaque)' : 'var(--alerta)');
+  copiarTexto(chaveNova).then(function (deu) {
+    dizer('recado-gerar', deu ? 'Chave copiada.' : 'Não consegui copiar. Segure o dedo em cima da chave para copiar.',
+          deu ? 'var(--destaque)' : 'var(--alerta)');
+  });
+}
+
+// O recado leva tudo numa mensagem so: link para baixar, o passo a passo e
+// a chave numa linha sozinha. O cliente copia a mensagem INTEIRA (segura o
+// dedo e toca em Copiar) e abre o aplicativo: o taximetro 3.1.1 em diante
+// acha a chave sozinho no texto copiado, sem digitar nada.
+function montarRecado() {
+  var nome = nomeDaChaveNova || appDaChaveNova;
+  var primeiroNome = (clienteDaChaveNova || '').trim().split(/\s+/)[0];
+  var linhaPrazo = validadeDaChaveNova
+    ? 'Seu acesso está liberado até ' + dataCurta(validadeDaChaveNova) +
+      '. Mantendo o pagamento em dia, ele renova sozinho.\n'
+    : '';
+  var baixar = linkDaChaveNova
+    ? '1) Baixe e instale o aplicativo por este link:\n' + linkDaChaveNova + '\n\n'
+    : '1) Instale o arquivo do aplicativo que mandei junto.\n\n';
+  return 'Olá' + (primeiroNome ? ', ' + primeiroNome : '') + '! Segue o aplicativo ' + nome + '.\n\n' +
+    baixar +
+    '2) Toque e segure nesta mensagem e toque em Copiar. Abra o aplicativo: a chave entra sozinha ' +
+    '(se não entrar, toque em "Colar chave").\n\n' +
+    '3) Toque em "Ativar aparelho", com a internet ligada (só nessa hora).\n\n' +
+    'Sua chave de ativação:\n' + chaveNova + '\n\n' +
+    'A chave vale num celular só.\n' + linhaPrazo + '\n' +
+    'Fortaleza Digital Security';
 }
 
 function copiarRecado() {
   if (!chaveNova) return;
-  var nome = '';
-  for (var i = 0; i < listaDeApps.length; i++) {
-    if (listaDeApps[i].id === appDaChaveNova) nome = listaDeApps[i].nome;
+  copiarTexto(montarRecado()).then(function (deu) {
+    dizer('recado-gerar', deu ? 'Recado copiado. Agora é só colar no WhatsApp.' : 'Não consegui copiar. Use "Mandar pelo WhatsApp".',
+          deu ? 'var(--destaque)' : 'var(--alerta)');
+  });
+}
+
+// Numero do WhatsApp no formato do wa.me: 55 + DDD + numero, so digitos.
+// Vazio = sem numero (o WhatsApp abre a lista de contatos). null = invalido.
+function foneParaWhatsApp(texto) {
+  var d = String(texto || '').replace(/\D/g, '');
+  if (!d) return '';
+  if (d.length >= 12 && d.length <= 13 && d.indexOf('55') === 0) return d;
+  if (d.length === 10 || d.length === 11) return '55' + d;
+  return null;
+}
+
+// Um toque: abre o WhatsApp ja com o recado escrito (na conversa do cliente,
+// se o numero foi digitado). Por garantia, o recado tambem fica copiado.
+function mandarPeloWhatsApp() {
+  if (!chaveNova) return;
+  var fone = foneParaWhatsApp(document.getElementById('gerar-fone').value);
+  if (fone === null) {
+    dizer('recado-gerar', 'Número de WhatsApp estranho. Use DDD + número (ex.: 64 99999-8888) ou deixe em branco.', 'var(--alerta)');
+    return;
   }
-  var linhaPrazo = validadeDaChaveNova
-    ? '\nSeu acesso está liberado até ' + dataCurta(validadeDaChaveNova) +
-      '. Mantendo o pagamento em dia, ele renova sozinho, sem você precisar fazer nada.\n'
-    : '';
-  var texto =
-    'Segue o aplicativo ' + (nome || appDaChaveNova) + '.\n\n' +
-    'Sua chave de ativação:\n' + chaveNova + '\n\n' +
-    'Instale o arquivo e abra o aplicativo. Copie a chave acima, toque em "Colar chave" ' +
-    '(ou digite a chave) e depois em "Ativar aparelho". ' +
-    'Precisa estar com a internet ligada só nessa hora.\n\n' +
-    'A chave vale num celular só.\n' + linhaPrazo + '\n' +
-    'Fortaleza Digital Security';
-  var deu = copiarTexto(texto);
-  dizer('recado-gerar', deu ? 'Recado copiado. Agora é só colar no WhatsApp.' : 'Não consegui copiar.',
-        deu ? 'var(--destaque)' : 'var(--alerta)');
+  var texto = montarRecado();
+  copiarTexto(texto).then(function () {
+    dizer('recado-gerar', fone ? 'Abrindo a conversa no WhatsApp... É só enviar.' : 'Abrindo o WhatsApp... Escolha o contato e envie.', 'var(--destaque)');
+    window.location.href = 'https://wa.me/' + fone + '?text=' + encodeURIComponent(texto);
+  });
 }
 
 // ============================ LICENÇAS ============================
@@ -567,7 +668,7 @@ function desenharLicencas(lista) {
     html += '<div class="chave">' + l.chave + '</div>';
     if (l.cliente) html += '<div class="linha">Cliente: ' + l.cliente + '</div>';
     if (l.observacao) html += '<div class="linha">' + l.observacao + '</div>';
-    html += '<div class="linha">Aplicativo: ' + l.app_id + ' &middot; criada em ' + dataCurta(l.criada_em) + '</div>';
+    html += '<div class="linha">Aplicativo: ' + escapar(nomeDoApp(l.app_id)) + ' &middot; criada em ' + dataCurta(l.criada_em) + '</div>';
     if (l.aparelho) {
       html += '<div class="linha">Celular: ' + l.aparelho + '</div>';
       html += '<div class="linha">Ativada em ' + dataCurta(l.ativada_em) + '</div>';
@@ -706,9 +807,10 @@ function copiarBackup() {
     dizer('recado-backup', 'Busque a cópia primeiro.', 'var(--alerta)');
     return;
   }
-  var deu = copiarTexto(texto);
-  dizer('recado-backup', deu ? 'Cópia copiada. Cole onde quiser guardar.' : 'Não consegui copiar.',
-        deu ? 'var(--destaque)' : 'var(--alerta)');
+  copiarTexto(texto).then(function (deu) {
+    dizer('recado-backup', deu ? 'Cópia copiada. Cole onde quiser guardar.' : 'Não consegui copiar. Segure o dedo no texto para copiar.',
+          deu ? 'var(--destaque)' : 'var(--alerta)');
+  });
 }
 
 // ===================== SENHA (versao 2.2) =====================
@@ -763,16 +865,47 @@ function recuperarSenha() {
   });
 }
 
+// Copiar (versao 2.3). Antes existiam DUAS funcoes com este nome: a de
+// baixo apagava a de cima e nao devolvia nada, entao a tela dizia "Nao
+// consegui copiar" mesmo quando copiava. Agora so diz "copiado" quando
+// copiou de fato. Ordem: area de transferencia do Android (plugin
+// Clipboard), a do navegador e, por ultimo, o jeito antigo.
 function copiarTexto(texto, recado) {
-  var avisar = function () { dizer(recado, 'Copiado.', 'var(--destaque)'); };
-  var jeitoAntigo = function () {
-    var campo = document.createElement('textarea');
-    campo.value = texto; document.body.appendChild(campo); campo.select();
-    try { document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(campo); avisar();
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(texto).then(avisar).catch(jeitoAntigo);
-  else jeitoAntigo();
+  texto = String(texto == null ? '' : texto);
+  var nativo = window.Capacitor && window.Capacitor.Plugins && window.Capacitor.Plugins.Clipboard;
+  var tentativa = (nativo && nativo.write)
+    ? nativo.write({ string: texto }).then(function () { return true; })
+    : Promise.reject(new Error('sem plugin'));
+  return tentativa
+    .catch(function () {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(texto).then(function () { return true; });
+      }
+      throw new Error('sem area de transferencia');
+    })
+    .catch(function () { return copiarJeitoAntigo(texto); })
+    .then(function (deu) {
+      if (recado) {
+        dizer(recado, deu ? 'Copiado.' : 'Não consegui copiar. Segure o dedo em cima do texto para copiar.',
+              deu ? 'var(--destaque)' : 'var(--alerta)');
+      }
+      return deu;
+    });
+}
+
+function copiarJeitoAntigo(texto) {
+  var campo = document.createElement('textarea');
+  campo.value = texto;
+  campo.setAttribute('readonly', '');
+  campo.style.position = 'fixed';
+  campo.style.opacity = '0';
+  document.body.appendChild(campo);
+  campo.select();
+  campo.setSelectionRange(0, texto.length);
+  var deu = false;
+  try { deu = document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(campo);
+  return deu;
 }
 
 // ============================= ABERTURA ===========================
