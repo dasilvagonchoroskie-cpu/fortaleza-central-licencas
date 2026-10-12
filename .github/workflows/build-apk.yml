@@ -1,148 +1,207 @@
-name: Montar APK da Central de Licencas
+name: Central de Licencas e pacote de licenca
 
-# Central de Licencas SEM senha dentro do APK: a senha de administrador e
-# digitada uma vez no celular (Ajustes). Por isso este repositorio pode ser
-# publico. A esteira confere que nenhuma senha foi parar no APK.
+# Este repositorio tem duas coisas:
+#  1) pacote/fortaleza_licenca: o pacote que TODOS os apps vendidos usam
+#     (portao de licenca). Analise e testes a cada envio.
+#  2) A Central de Licencas 3 (Flutter): analise, testes e APK assinado com
+#     a MESMA chave da Central 2.x — instala por cima. Na branch main, o
+#     APK vira Release (link direto).
+# O resumo de cada montagem fica em logs/ultima-montagem.txt.
 on:
   push:
-    branches: [main]
+    branches: ['**']
   workflow_dispatch: {}
 
+env:
+  FLUTTER_VERSION: '3.47.5'
+  JAVA_VERSION: '17'
+  # Impressao digital da chave da Central (a mesma da 2.x que esta no celular).
+  CHAVE_ESPERADA: 'ec4063e42cf39327d55029bf99dcbeab51474b843ae1d15195e84f18d03ff9f2'
+
+permissions:
+  contents: write
+
 jobs:
-  montar:
+  pacote:
+    name: Pacote de licenca (analise e testes)
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    defaults:
+      run:
+        working-directory: pacote/fortaleza_licenca
     steps:
-      - name: Baixar o codigo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Conferir que o servidor de licencas esta no ar
-        run: |
-          RESP=$(curl -s -o corpo.txt -w '%{http_code}' -X POST -H 'Content-Type: application/json' \
-            -d '{"chave":"AAAA-BBBB-CCCC-DDDD","app_id":"taximetro","aparelho":"YJPJ-P7EA-DG7B-5BEJ"}' \
-            https://fortaleza-licencas.fortalezadigitalsecurity.workers.dev/ativar || echo 000)
-          echo "Servidor respondeu HTTP $RESP: $(head -c 200 corpo.txt)"
-          if [ "$RESP" != "404" ]; then echo "ERRO: o servidor de licencas nao respondeu como esperado"; exit 1; fi
-
-      - name: Conferir que nao ha senha no codigo
-        run: |
-          grep -q "var SENHA_PADRAO = '';" www/index.html || { echo "ERRO: a Central nao pode levar senha"; exit 1; }
-
-      - name: Preparar Java
-        uses: actions/setup-java@v5
+      - uses: subosito/flutter-action@v2
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
 
-      # O Android ja vem instalado na maquina do GitHub (ANDROID_HOME), como no
-      # taximetro. A peca android-actions/setup-android quebrou em 30/09/2026.
-      - name: Conferir o Android da maquina
-        run: |
-          echo "Android em: $ANDROID_HOME"
-          ls "$ANDROID_HOME/build-tools" | sort -V | tail -3
-          ls "$ANDROID_HOME/platforms" | sort -V | tail -3
+      - name: Baixar dependencias
+        run: flutter pub get 2>&1 | tee -a ../../pacote.log
 
-      - name: Preparar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Instalar dependencias
-        run: npm install
-
-      # A tela roda num navegador simulado antes de montar: copiar, recado,
-      # WhatsApp e escolha do aplicativo. Se falhar, o APK nao sai.
-      - name: Testar a tela (copiar, recado e WhatsApp)
+      - name: Analise (flutter analyze)
         run: |
           set -o pipefail
-          if ! node scripts/teste-tela.mjs 2>&1 | grep -v "Not implemented" | tee teste-tela.log; then
-            grep "FALHA" teste-tela.log | head -20 | while IFS= read -r l; do echo "::error title=teste da tela::$l"; done
+          echo "=== analise do pacote ===" >> ../../pacote.log
+          if ! flutter analyze --no-fatal-infos 2>&1 | tee -a ../../pacote.log; then
+            grep -E " error | warning |error -|warning -" ../../pacote.log | head -10 | while IFS= read -r l; do echo "::error title=pacote analyze::$l"; done
             exit 1
           fi
 
-      - name: Criar o projeto Android
-        run: npx cap add android
-
-      # A versao mora num lugar so (package.json). Aqui ela e carimbada no
-      # Android (o que aparece nas Configuracoes do celular) e na tela de
-      # Ajustes. Antes o Android ficava sempre no "1.0" de fabrica.
-      - name: Carimbar a versao (no Android e na tela de Ajustes)
+      - name: Testes (flutter test)
         run: |
-          VERSAO=$(node -p "require('./package.json').version")
-          VERSAO=${VERSAO%.0}
-          CODIGO=$((100 + ${{ github.run_number }}))
-          DATA=$(TZ=America/Sao_Paulo date +%d/%m/%Y)
-          sed -i "s/versionCode [0-9][0-9]*/versionCode $CODIGO/; s/versionName \"[^\"]*\"/versionName \"$VERSAO\"/" android/app/build.gradle
-          grep -n "versionCode\|versionName" android/app/build.gradle
-          grep -q "versionName \"$VERSAO\"" android/app/build.gradle || { echo "ERRO: nao consegui carimbar a versao no Android"; exit 1; }
-          sed -i "s|@@VERSAO@@|$VERSAO (montagem $CODIGO, $DATA)|" www/index.html
-          if grep -q "@@VERSAO@@" www/index.html; then echo "ERRO: sobrou o marcador de versao na tela"; exit 1; fi
-          echo "VERSAO_APP=$VERSAO" >> "$GITHUB_ENV"
-          echo "Versao $VERSAO, codigo $CODIGO, data $DATA"
+          set -o pipefail
+          echo "=== testes do pacote ===" >> ../../pacote.log
+          if ! flutter test 2>&1 | tee -a ../../pacote.log; then
+            grep -E "FAILED|\[E\]|Expected:|Actual:|Which:|Error:|error:" ../../pacote.log | head -10 | while IFS= read -r l; do echo "::error title=pacote test::$l"; done
+            exit 1
+          fi
 
-      - name: Sincronizar
-        run: npx cap sync android
+      - name: Guardar o registro
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registro-pacote
+          path: pacote.log
+          if-no-files-found: ignore
 
-      # Sem o plugin da area de transferencia, o "Copiar" volta a falhar.
-      - name: Conferir o plugin de copiar dentro do projeto Android
+  central:
+    name: Central de Licencas (Flutter)
+    needs: pacote
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: A Central em Flutter ja esta no repositorio?
+        id: tem
         run: |
-          grep -q "capacitor-clipboard" android/capacitor.settings.gradle || { echo "ERRO: o plugin Clipboard nao entrou no APK"; exit 1; }
-          echo "Plugin Clipboard: conferido."
+          if [ -f pubspec.yaml ]; then echo "app=sim" >> "$GITHUB_OUTPUT"; else echo "app=nao" >> "$GITHUB_OUTPUT"; echo "Ainda sem a Central em Flutter: so o pacote foi conferido."; fi
 
-      - name: Aplicar a marca (icone e tela de abertura)
+      - uses: actions/setup-java@v5
+        if: steps.tem.outputs.app == 'sim'
+        with:
+          distribution: temurin
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - uses: subosito/flutter-action@v2
+        if: steps.tem.outputs.app == 'sim'
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Baixar dependencias
+        if: steps.tem.outputs.app == 'sim'
+        run: flutter pub get 2>&1 | tee -a central.log
+
+      - name: Analise (flutter analyze)
+        if: steps.tem.outputs.app == 'sim'
         run: |
-          python3 -m venv /tmp/marca
-          /tmp/marca/bin/pip install --quiet pillow
-          /tmp/marca/bin/python marca/aplicar-marca.py
+          set -o pipefail
+          echo "=== analise da Central ===" >> central.log
+          if ! flutter analyze --no-fatal-infos 2>&1 | tee -a central.log; then
+            grep -E " error | warning |error -|warning -" central.log | head -10 | while IFS= read -r l; do echo "::error title=central analyze::$l"; done
+            exit 1
+          fi
 
-      - name: Compilar o APK
-        working-directory: android
+      - name: Testes (flutter test)
+        if: steps.tem.outputs.app == 'sim'
         run: |
-          chmod +x gradlew
-          ./gradlew assembleRelease
+          set -o pipefail
+          echo "=== testes da Central ===" >> central.log
+          if ! flutter test 2>&1 | tee -a central.log; then
+            grep -E "FAILED|\[E\]|Expected:|Actual:|Which:|Error:|error:" central.log | head -10 | while IFS= read -r l; do echo "::error title=central test::$l"; done
+            exit 1
+          fi
 
-      - name: Assinar com a chave da Central
+      - name: Preparar a chave da Central (a mesma da 2.x)
+        if: steps.tem.outputs.app == 'sim'
         env:
           CHAVE: ${{ secrets.CENTRAL_KEYSTORE_BASE64 }}
           SENHA: ${{ secrets.CENTRAL_KEYSTORE_SENHA }}
         run: |
           if [ -z "$CHAVE" ] || [ -z "$SENHA" ]; then echo "ERRO: faltam os segredos da chave da Central"; exit 1; fi
           echo "$CHAVE" | base64 -d > "$RUNNER_TEMP/central.p12"
-          BT=$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)
-          ENTRADA=$(ls android/app/build/outputs/apk/release/*.apk | head -1)
+          printf 'storeFile=%s\nstorePassword=%s\nkeyAlias=%s\nkeyPassword=%s\nstoreType=pkcs12\n' \
+            "$RUNNER_TEMP/central.p12" "$SENHA" "central" "$SENHA" > android/key.properties
+
+      - name: Compilar o APK
+        if: steps.tem.outputs.app == 'sim'
+        run: |
+          NUMERO=$((1000 + ${{ github.run_number }}))
+          echo "NUMERO=$NUMERO" >> "$GITHUB_ENV"
+          echo "=== compilacao (codigo $NUMERO) ===" >> central.log
+          set -o pipefail
+          if ! flutter build apk --release --build-number=$NUMERO --dart-define=MONTAGEM=$NUMERO 2>&1 | tee -a central.log; then
+            grep -E "^e: |error:|What went wrong|FAILURE|Exception" -A3 central.log | head -10 | while IFS= read -r l; do echo "::error title=central build::$l"; done
+            exit 1
+          fi
           mkdir -p saida
-          "$ANDROID_HOME/build-tools/$BT/zipalign" -f -p 4 "$ENTRADA" saida/alinhado.apk
-          "$ANDROID_HOME/build-tools/$BT/apksigner" sign --ks "$RUNNER_TEMP/central.p12" --ks-type PKCS12 \
-            --ks-pass env:SENHA --ks-key-alias central --key-pass env:SENHA \
-            --out saida/central-de-licencas.apk saida/alinhado.apk
-          "$ANDROID_HOME/build-tools/$BT/apksigner" verify --print-certs saida/central-de-licencas.apk | head -3
-          rm -f saida/alinhado.apk "$RUNNER_TEMP/central.p12"
+          cp build/app/outputs/flutter-apk/app-release.apk saida/central-de-licencas.apk
+          ls -la saida
 
-      - name: Conferir a versao dentro do APK pronto (senao nao publica)
+      - name: Conferir a chave e o pacote (senao nao publica)
+        if: steps.tem.outputs.app == 'sim'
         run: |
           BT=$(ls "$ANDROID_HOME/build-tools" | sort -V | tail -1)
+          "$ANDROID_HOME/build-tools/$BT/apksigner" verify --print-certs saida/central-de-licencas.apk | tee assinatura.txt
+          grep -qi "SHA-256 digest: $CHAVE_ESPERADA" assinatura.txt || { echo "ERRO: o APK nao saiu com a chave da Central. Nao publico."; exit 1; }
           LINHA=$("$ANDROID_HOME/build-tools/$BT/aapt2" dump badging saida/central-de-licencas.apk | head -1)
-          echo "$LINHA"
-          echo "$LINHA" | grep -q "versionName='$VERSAO_APP'" || { echo "ERRO: o APK nao saiu com a versao $VERSAO_APP"; exit 1; }
+          echo "$LINHA" | tee -a central.log
+          echo "$LINHA" | grep -q "name='br.com.fortalezadigitalsecurity.licencas'" || { echo "ERRO: pacote errado"; exit 1; }
+          echo "Chave e pacote conferidos: instala por cima da Central 2.x." | tee -a central.log
 
-      - name: Conferir que o APK nao leva senha (senao nao publica)
-        run: |
-          unzip -p saida/central-de-licencas.apk assets/public/index.html > pagina.html
-          grep -q "var SENHA_PADRAO = '';" pagina.html || { echo "ERRO: achei senha dentro do APK. Nao publico."; exit 1; }
-          echo "APK sem senha: conferido."
+      - name: Guardar o registro
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registro-central
+          path: central.log
+          if-no-files-found: ignore
 
-      - name: Guardar o APK
+      - name: Guardar o APK (artefato)
+        if: steps.tem.outputs.app == 'sim'
         uses: actions/upload-artifact@v4
         with:
           name: central-de-licencas-apk
           path: saida/central-de-licencas.apk
 
       - name: Publicar como Release (link direto)
+        if: steps.tem.outputs.app == 'sim' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: apk-mais-recente
           name: Central de Licencas - versao mais recente
-          body: Central de Licencas sem senha dentro do APK. Na primeira vez, digite a senha de administrador em Ajustes. Uso interno.
+          body: Central de Licencas 3 (Flutter). Instala por cima da 2.x. Na primeira vez, digite a senha de administrador. Uso interno.
           files: saida/central-de-licencas.apk
           prerelease: true
+
+  registro:
+    name: Guardar o registro no repositorio
+    needs: [pacote, central]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: registro-*
+          path: registros
+          merge-multiple: true
+      - name: Gravar logs/ultima-montagem.txt
+        run: |
+          mkdir -p logs
+          {
+            echo "Montagem ${{ github.run_number }} | branch ${{ github.ref_name }} | commit ${{ github.sha }}"
+            echo "pacote: ${{ needs.pacote.result }} | central: ${{ needs.central.result }}"
+            echo
+            cat registros/pacote.log 2>/dev/null | grep -v "^\s*$" | tail -400
+            echo
+            cat registros/central.log 2>/dev/null | grep -v "^\s*$" | tail -400
+          } > logs/ultima-montagem.txt
+          git config user.name "acoes"
+          git config user.email "acoes@local"
+          git add logs/ultima-montagem.txt
+          git commit -m "registro da montagem ${{ github.run_number }}" || exit 0
+          git push || (git pull --rebase && git push) || true
