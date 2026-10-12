@@ -1,0 +1,70 @@
+Montagem 6 | branch central-3 | commit 418a67eccac32ce77b6ad9c2a7a72c01d4f170dc
+pacote: failure | central: skipped
+
+Resolving dependencies...
+Downloading packages...
++ async 2.13.1
++ boolean_selector 2.1.2
++ characters 1.4.1
++ clock 1.1.3
++ collection 1.19.1
++ convert 3.1.2
++ crypto 3.0.7
++ fake_async 1.3.3
++ ffi 2.2.0
++ file 7.0.1
++ flutter 0.0.0 from sdk flutter
++ flutter_lints 5.0.0 (6.0.0 available)
++ flutter_test 0.0.0 from sdk flutter
++ flutter_web_plugins 0.0.0 from sdk flutter
++ js 0.7.2
++ leak_tracker 11.0.2
++ leak_tracker_flutter_testing 3.0.10
++ leak_tracker_testing 3.0.2
++ lints 5.1.1 (6.1.0 available)
++ matcher 0.12.20
++ material_color_utilities 0.13.0 (0.13.1 available)
++ meta 1.19.0
++ path 1.9.1
++ path_provider_linux 2.2.2
++ path_provider_platform_interface 2.1.3
++ path_provider_windows 2.3.0
++ platform 3.2.0
++ plugin_platform_interface 2.1.8
++ pointycastle 3.9.1 (4.0.0 available)
++ shared_preferences 2.5.6
++ shared_preferences_android 2.4.28
++ shared_preferences_foundation 2.5.7
++ shared_preferences_linux 2.4.1
++ shared_preferences_platform_interface 2.4.2
++ shared_preferences_web 2.4.3
++ shared_preferences_windows 2.4.1
++ sky_engine 0.0.0 from sdk flutter
++ source_span 1.10.2
++ stack_trace 1.12.2
++ stream_channel 2.1.4
++ string_scanner 1.4.1
++ term_glyph 1.2.2
++ test_api 0.7.12 (0.7.15 available)
++ typed_data 1.4.0
++ url_launcher 6.3.3
++ url_launcher_android 6.3.33
++ url_launcher_ios 6.4.2
++ url_launcher_linux 3.2.3
++ url_launcher_macos 3.2.6
++ url_launcher_platform_interface 2.3.2
++ url_launcher_web 2.4.3
++ url_launcher_windows 3.1.6
++ vector_math 2.4.3
++ vm_service 15.3.0
++ web 1.1.1
++ xdg_directories 1.1.0
+Changed 56 dependencies!
+5 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Upgrading analysis_options.yaml to exclude build and platform directories.
+=== analise do pacote ===
+Analyzing fortaleza_licenca...                                  
+warning • The '!' will have no effect because the receiver can't be null. Try removing the '!' operator • lib/src/tela_liberacao.dart:154:70 • unnecessary_non_null_assertion
+1 issue found. (ran in 6.6s)
+
