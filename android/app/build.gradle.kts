@@ -71,11 +71,6 @@ kotlin {
     }
 }
 
-dependencies {
-    // Confere os pedidos novos em segundo plano (aviso de pedido).
-    implementation("androidx.work:work-runtime:2.10.1")
-}
-
 flutter {
     source = "../.."
 }
