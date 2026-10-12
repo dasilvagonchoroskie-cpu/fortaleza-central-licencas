@@ -167,8 +167,56 @@ jobs:
           name: central-de-licencas-apk
           path: saida/central-de-licencas.apk
 
+
+
+  emulador:
+    name: Abrir no celular virtual (nao pode fechar)
+    needs: central
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: central-de-licencas-apk
+          path: saida
+
+      - name: Ligar a aceleracao do emulador (KVM)
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Abrir a Central no emulador (por cima da 2.3 e do zero)
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          script: bash ci/emulador.sh
+
+      - name: Guardar fotos e registro do emulador
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registro-emulador
+          path: registro-emulador/
+          if-no-files-found: ignore
+
+  publicar:
+    name: Publicar o APK (so na main, depois do emulador)
+    needs: emulador
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: central-de-licencas-apk
+          path: saida
       - name: Publicar como Release (link direto)
-        if: steps.tem.outputs.app == 'sim' && github.ref == 'refs/heads/main'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: apk-mais-recente
@@ -179,7 +227,7 @@ jobs:
 
   registro:
     name: Guardar o registro no repositorio
-    needs: [pacote, central]
+    needs: [pacote, central, emulador]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -194,14 +242,17 @@ jobs:
           mkdir -p logs
           {
             echo "Montagem ${{ github.run_number }} | branch ${{ github.ref_name }} | commit ${{ github.sha }}"
-            echo "pacote: ${{ needs.pacote.result }} | central: ${{ needs.central.result }}"
+            echo "pacote: ${{ needs.pacote.result }} | central: ${{ needs.central.result }} | emulador: ${{ needs.emulador.result }}"
+            cat registros/emulador-resumo.txt 2>/dev/null
             echo
             cat registros/pacote.log 2>/dev/null | grep -v "^\s*$" | tail -400
             echo
             cat registros/central.log 2>/dev/null | grep -v "^\s*$" | tail -400
           } > logs/ultima-montagem.txt
+          rm -rf logs/emulador && mkdir -p logs/emulador
+          cp registros/emulador-* logs/emulador/ 2>/dev/null || true
           git config user.name "acoes"
           git config user.email "acoes@local"
-          git add logs/ultima-montagem.txt
+          git add logs/ultima-montagem.txt logs/emulador
           git commit -m "registro da montagem ${{ github.run_number }}" || exit 0
           git push || (git pull --rebase && git push) || true
