@@ -1,4 +1,4 @@
-Montagem 8 | branch central-3 | commit f7e231f9c601df77656276a410fca895fc4dbde4
+Montagem 10 | branch main | commit 93640318773bde469ec1338a00859251e93e8c1f
 pacote: success | central: success
 
 Resolving dependencies...
@@ -65,7 +65,7 @@ Try `flutter pub outdated` for more information.
 Upgrading analysis_options.yaml to exclude build and platform directories.
 === analise do pacote ===
 Analyzing fortaleza_licenca...                                  
-No issues found! (ran in 6.0s)
+No issues found! (ran in 7.4s)
 === testes do pacote ===
 ::group::✅ Passing tests
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: codigo do aparelho (igual ao taximetro desde a versao 1) mesma conta do taximetro: o codigo de quem ja usa nao muda
@@ -85,12 +85,7 @@ No issues found! (ran in 6.0s)
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura assinatura de outra chave (ex.: um servidor falso) nao vale
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura lixo no lugar da assinatura nao quebra
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura guarda e le de volta igualzinho
-✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: cliente pede liberacao, ve o codigo e o app abre quando a Central libera
-✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: aparelho liberado abre direto no app
-✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: portao desligado (versao da Play Store) abre direto
-✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: teste gratis aparece e libera na hora
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: aparelho novo: pergunta ao servidor e fica na tela de pedido
-✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: sem internet mostra o aviso
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: pedido -> codigo de verificacao -> Central libera -> app abre sozinho
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: pedido com nome ou WhatsApp ruim nem vai ao servidor
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: liberado abre SEM internet e nao pergunta de novo antes de 6 horas
@@ -114,6 +109,11 @@ No issues found! (ran in 6.0s)
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) bloqueio da Central vale mesmo para quem tinha a liberacao antiga
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) chave comprida do gerador de reserva ativa sem internet
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) chave comprida de outro aparelho e recusada
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: cliente pede liberacao, ve o codigo e o app abre quando a Central libera
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: aparelho liberado abre direto no app
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: portao desligado (versao da Play Store) abre direto
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: teste gratis aparece e libera na hora
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: sem internet mostra o aviso
 ::endgroup::
 🎉 46 tests passed.
 
@@ -179,7 +179,7 @@ Changed 55 dependencies!
 Try `flutter pub outdated` for more information.
 === analise da Central ===
 Analyzing fortaleza-central-licencas...                         
-No issues found! (ran in 8.4s)
+No issues found! (ran in 8.5s)
 === testes da Central ===
 ::group::✅ Passing tests
 ✅ textos WhatsApp
@@ -193,7 +193,7 @@ No issues found! (ran in 8.4s)
 ✅ tela de pedidos: ve o codigo, escolhe 30 dias e libera
 ::endgroup::
 🎉 9 tests passed.
-=== compilacao (codigo 1008) ===
+=== compilacao (codigo 1010) ===
 Running Gradle task 'assembleRelease'...                        
 Loading package information...                                                  
 Loading local repository...                                                     
@@ -288,7 +288,7 @@ Loading local repository...
 [=======================================] 100% Unzipping... android-ndk-r28c/CHA
 Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 5224 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Caught exception: Already watching path: /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/android
-Running Gradle task 'assembleRelease'...                          269.6s
+Running Gradle task 'assembleRelease'...                          272.9s
 ✓ Built build/app/outputs/flutter-apk/app-release.apk (24.3MB)
-package: name='br.com.fortalezadigitalsecurity.licencas' versionCode='1008' versionName='3.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+package: name='br.com.fortalezadigitalsecurity.licencas' versionCode='1010' versionName='3.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
 Chave e pacote conferidos: instala por cima da Central 2.x.
