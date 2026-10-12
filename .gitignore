@@ -1,5 +1,25 @@
-node_modules/
-android/
+# Flutter
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+.idea/
+*.iml
+pubspec.lock
+# Android
+android/.gradle/
+android/local.properties
+android/app/.cxx/
+android/gradlew
+android/gradlew.bat
+android/gradle/wrapper/gradle-wrapper.jar
+GeneratedPluginRegistrant.java
+# Segredos: NUNCA versionar a chave de assinatura
+android/key.properties
 *.p12
 *.jks
 *.keystore
+# Python
+__pycache__/
+# Antigo (Capacitor)
+node_modules/
