@@ -1,5 +1,5 @@
-Montagem 6 | branch central-3 | commit 418a67eccac32ce77b6ad9c2a7a72c01d4f170dc
-pacote: failure | central: skipped
+Montagem 7 | branch central-3 | commit 0fbf47e360f65c8574e6b7ddd5214a3e0b267f54
+pacote: success | central: success
 
 Resolving dependencies...
 Downloading packages...
@@ -65,6 +65,55 @@ Try `flutter pub outdated` for more information.
 Upgrading analysis_options.yaml to exclude build and platform directories.
 === analise do pacote ===
 Analyzing fortaleza_licenca...                                  
-warning • The '!' will have no effect because the receiver can't be null. Try removing the '!' operator • lib/src/tela_liberacao.dart:154:70 • unnecessary_non_null_assertion
-1 issue found. (ran in 6.6s)
+No issues found! (ran in 7.7s)
+=== testes do pacote ===
+::group::✅ Passing tests
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: codigo do aparelho (igual ao taximetro desde a versao 1) mesma conta do taximetro: o codigo de quem ja usa nao muda
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: codigo do aparelho (igual ao taximetro desde a versao 1) cada app tem o seu codigo no mesmo celular
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: chave digitada ou colada acha a chave no meio da mensagem do WhatsApp
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: chave digitada ou colada chave sozinha, minuscula, sem tracos ou com espacos
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: chave digitada ou colada ignora o codigo do proprio aparelho
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: chave digitada ou colada nao inventa chave em texto comum nem em link
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: chave digitada ou colada chave comprida antiga passa inteira
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: chave digitada ou colada formata enquanto digita
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: WhatsApp e textos normaliza o numero como o servidor
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: WhatsApp e textos mostra bonito
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura liberacao antiga de VERDADE (chave do servidor) confere
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura liberacao antiga nao serve em outro aparelho nem com outro prazo
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura liberacao nova (FDS2) confere com a chave do servidor que assinou
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura liberacao nova nao vale em outro aparelho, outro app ou adulterada
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura assinatura de outra chave (ex.: um servidor falso) nao vale
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura lixo no lugar da assinatura nao quebra
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: assinatura guarda e le de volta igualzinho
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: aparelho novo: pergunta ao servidor e fica na tela de pedido
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: pedido -> codigo de verificacao -> Central libera -> app abre sozinho
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: pedido com nome ou WhatsApp ruim nem vai ao servidor
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: liberado abre SEM internet e nao pergunta de novo antes de 6 horas
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: depois de 6 horas, renova em silencio (sem atrapalhar)
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: sem internet na renovacao: continua liberado
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: erro do servidor nunca trava quem esta liberado
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: reinstalou ou perdeu os dados: o servidor devolve a liberacao sozinho
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: liberacao copiada para OUTRO celular nao abre
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: liberacao adulterada (prazo esticado) nao abre
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: 90 dias sem internet: pede para ligar a internet uma vez
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: relogio do celular voltado para tras: nao vale sem internet
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: servidor bloqueia com o app em uso: nao derruba a tela, trava na proxima abertura
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: teste gratis: libera na hora e avisa quantos dias faltam
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: teste acabou: a tela explica
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: chave curta achada na mensagem inteira do WhatsApp
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: chave recusada pelo servidor mostra o motivo
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: sem conseguir ler o aparelho: avisa e nao inventa codigo
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) quem ja usa continua liberado sem internet
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) liberacao antiga com prazo vale ate o prazo
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) liberacao antiga com prazo vencido nao abre sem internet
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) bloqueio da Central vale mesmo para quem tinha a liberacao antiga
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) chave comprida do gerador de reserva ativa sem internet
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/controle_test.dart: taximetro 3.1 (liberacao antiga) chave comprida de outro aparelho e recusada
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: cliente pede liberacao, ve o codigo e o app abre quando a Central libera
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: aparelho liberado abre direto no app
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: portao desligado (versao da Play Store) abre direto
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: teste gratis aparece e libera na hora
+✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/portao_test.dart: sem internet mostra o aviso
+::endgroup::
+🎉 46 tests passed.
 
