@@ -151,7 +151,7 @@ class _TelaLiberacaoState extends State<TelaLiberacao> with WidgetsBindingObserv
                       ],
                       const SizedBox(height: 20),
                       if (soConfirmar) _cartaoConfirmar(context),
-                      if (mostrarPendente) _cartaoPendente(context, p!),
+                      if (mostrarPendente) _cartaoPendente(context, p),
                       if (mostrarRecusado) _cartaoRecusado(context),
                       if (mostrarFormulario) ...[
                         if (c.testeDisponivel && c.infoApp.testeDias > 0) ...[
