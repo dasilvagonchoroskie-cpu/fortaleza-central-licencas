@@ -16,7 +16,7 @@ grátis** (se o app tiver) e a **chave de ativação**.
        git:
          url: https://github.com/dasilvagonchoroskie-cpu/fortaleza-central-licencas.git
          path: pacote/fortaleza_licenca
-         ref: licenca-v1
+         ref: 8d208fbadafd65a681bd81473a4b49619b041b4c  # licenca-v1
    ```
 
 2. **MainActivity.kt** — o canal que entrega o código do aparelho:

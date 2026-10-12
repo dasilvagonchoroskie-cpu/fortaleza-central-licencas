@@ -37,7 +37,7 @@ A cada envio: pacote (análise + testes) → Central (análise + testes + APK
 assinado). Na branch `main`, o APK vira Release `apk-mais-recente`. O
 resumo da última montagem fica em `logs/ultima-montagem.txt`.
 
-Versões do pacote usadas pelos apps: tags `licenca-v1`, `licenca-v2`...
+Versão do pacote usada pelos apps: **licenca-v1 = commit `8d208fbadafd65a681bd81473a4b49619b041b4c`** (os apps prendem o commit no `pubspec.yaml`; uma versão nova do pacote ganha commit novo e cada app troca quando for atualizado).
 
 ## Histórico
 
