@@ -1,300 +1,152 @@
-10-12 01:04:02.842 W/RecoverableKeyStoreGms( 5494): 	at android.security.keystore.recovery.RecoveryController.wrapUnexpectedServiceSpecificException(RecoveryController.java:783)
-10-12 01:04:02.842 W/RecoverableKeyStoreGms( 5494): Caused by: android.os.ServiceSpecificException: Failed to import secret key. (code 22)
-10-12 01:04:02.842 W/RecoverableKeyStoreGms( 5494): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3071)
-10-12 01:04:02.842 W/RecoverableKeyStoreGms( 5494): 	at android.os.Parcel.createException(Parcel.java:3041)
-10-12 01:04:02.842 W/RecoverableKeyStoreGms( 5494): 	at android.os.Parcel.readException(Parcel.java:3024)
-10-12 01:04:02.842 W/RecoverableKeyStoreGms( 5494): 	at android.os.Parcel.readException(Parcel.java:2966)
-10-12 01:04:02.908 E/dlpn    ( 5403): RuntimeException while executing runnable dlqc{qze@8c2bf88} with executor MoreExecutors.directExecutor()
-10-12 01:04:02.908 E/dlpn    ( 5403): java.lang.NullPointerException: Attempt to get length of null array
-10-12 01:04:03.133 W/libc    ( 3023): Access denied finding property "persist.adb.tls_server.enable"
-10-12 01:04:03.136 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
-10-12 01:04:03.329 W/libc    ( 5494): Access denied finding property "ro.hardware.chipname"
-10-12 01:04:03.458 W/PeoplePU( 5494): java.lang.IllegalArgumentException: Unknown component: ComponentInfo{com.google.android.syncadapters.contacts/com.google.android.syncadapters.contacts.ProxyGalProvider}
-10-12 01:04:03.458 W/PeoplePU( 5494): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3061)
-10-12 01:04:03.458 W/PeoplePU( 5494): 	at android.os.Parcel.createException(Parcel.java:3041)
-10-12 01:04:03.458 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:3024)
-10-12 01:04:03.458 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:2966)
-10-12 01:04:03.526 W/TapAndPay( 5403): java.lang.NullPointerException: NfcAdapter is null
-10-12 01:04:03.724 I/SemanticLocation( 5403): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
-10-12 01:04:03.724 I/SemanticLocation( 5403): 	at libcore.io.IoBridge.open(IoBridge.java:574)
-10-12 01:04:03.724 I/SemanticLocation( 5403): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
-10-12 01:04:03.724 I/SemanticLocation( 5403): 	at libcore.io.Linux.open(Native Method)
-10-12 01:04:03.724 I/SemanticLocation( 5403): 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
-10-12 01:04:03.724 I/SemanticLocation( 5403): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
-10-12 01:04:03.724 I/SemanticLocation( 5403): 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
-10-12 01:04:03.724 I/SemanticLocation( 5403): 	at libcore.io.IoBridge.open(IoBridge.java:560)
-10-12 01:04:03.749 I/SemanticLocation( 5403): java.io.FileNotFoundException: /data/user/0/com.google.android.gms/files/model_bundle_metadata.pb: open failed: ENOENT (No such file or directory)
-10-12 01:04:03.749 I/SemanticLocation( 5403): 	at libcore.io.IoBridge.open(IoBridge.java:574)
-10-12 01:04:03.749 I/SemanticLocation( 5403): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
-10-12 01:04:03.749 I/SemanticLocation( 5403): 	at libcore.io.Linux.open(Native Method)
-10-12 01:04:03.749 I/SemanticLocation( 5403): 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
-10-12 01:04:03.749 I/SemanticLocation( 5403): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
-10-12 01:04:03.749 I/SemanticLocation( 5403): 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
-10-12 01:04:03.749 I/SemanticLocation( 5403): 	at libcore.io.IoBridge.open(IoBridge.java:560)
-10-12 01:04:03.935 W/Conscrypt( 5494): Could not set socket write timeout: java.net.SocketException: Socket closed
-10-12 01:04:03.999 W/Conscrypt( 5494): Could not set socket write timeout: java.net.SocketException: Socket closed
-10-12 01:04:04.244 W/libc    ( 3023): Access denied finding property "persist.adb.tls_server.enable"
-10-12 01:04:04.245 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
-10-12 01:04:04.476 W/Conscrypt( 5494): Could not set socket write timeout: java.net.SocketException: Socket closed
-10-12 01:04:04.983 W/Conscrypt( 5494): Could not set socket write timeout: java.net.SocketException: Socket closed
-10-12 01:04:05.006 E/PhenotypeFlagCommitter( 5494): java.util.concurrent.TimeoutException: Timed out waiting for Task
-10-12 01:04:09.883 W/AsyncOperation( 5403): OperationException[Status{statusCode=Stale snapshot for com.google.android.gms.backup(change count changed - expected 5  but was 4), resolution=null}]
-10-12 01:04:09.884 W/PhenotypeFlagCommitter( 5403): java.util.concurrent.ExecutionException: aard: 29501: Stale snapshot for com.google.android.gms.backup(change count changed - expected 5  but was 4)
-10-12 01:04:09.884 W/PhenotypeCommitHelper( 5403): java.util.concurrent.ExecutionException: aard: 29501: Stale snapshot for com.google.android.gms.backup(change count changed - expected 5  but was 4)
-10-12 01:04:09.949 W/AsyncOperation( 5403): OperationException[Status{statusCode=Stale snapshot for com.google.android.libraries.consentverifier#com.google.android.gms(change count changed - expected 3  but was 2), resolution=null}]
-10-12 01:04:10.055 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.085 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.105 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.130 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.145 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.163 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.375 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
-10-12 01:04:10.387 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
-10-12 01:04:10.387 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
-10-12 01:04:10.399 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.412 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.630 W/PeoplePU( 5494): java.lang.IllegalArgumentException: Unknown component: ComponentInfo{com.google.android.syncadapters.contacts/com.google.android.syncadapters.contacts.ContactsSyncAdapterService}
-10-12 01:04:10.630 W/PeoplePU( 5494): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3061)
-10-12 01:04:10.630 W/PeoplePU( 5494): 	at android.os.Parcel.createException(Parcel.java:3041)
-10-12 01:04:10.630 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:3024)
-10-12 01:04:10.630 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:2966)
-10-12 01:04:10.630 W/PeoplePU( 5494): Caused by: android.os.RemoteException: Remote stack trace:
-10-12 01:04:10.636 W/PeoplePU( 5494): java.lang.IllegalArgumentException: Unknown component: ComponentInfo{com.google.android.syncadapters.contacts/com.google.android.syncadapters.contacts.ContactsSyncAdapterService}
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3061)
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.createException(Parcel.java:3041)
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:3024)
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:2966)
-10-12 01:04:10.636 W/PeoplePU( 5494): java.lang.IllegalArgumentException: Unknown component: ComponentInfo{com.google.android.syncadapters.contacts/com.google.android.syncadapters.contacts.ProxyGalProvider}
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3061)
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.createException(Parcel.java:3041)
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:3024)
-10-12 01:04:10.636 W/PeoplePU( 5494): 	at android.os.Parcel.readException(Parcel.java:2966)
-10-12 01:04:10.713 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
-10-12 01:04:10.719 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.727 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
-10-12 01:04:10.727 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
-10-12 01:04:10.846 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
-10-12 01:04:10.870 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
-10-12 01:04:10.870 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
-10-12 01:04:10.894 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.937 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:10.997 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.008 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.066 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.106 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.124 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.160 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.186 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.198 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.223 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.241 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.246 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.264 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.270 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.281 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.298 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.307 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.324 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.333 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.345 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.354 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.357 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.374 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.385 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.388 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.405 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.425 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.439 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.453 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.468 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.483 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.533 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.541 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.546 W/NetworkScheduler( 5403): java.lang.IllegalArgumentException: Only the following extra parameter types are supported: Integer, Long, Double, String, Boolean, and nested Bundles with the same restrictions.
-10-12 01:04:11.589 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.604 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.618 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.640 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.651 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.668 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.697 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.706 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.722 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.734 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.751 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.756 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.761 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.780 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.792 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.795 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.806 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.809 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.828 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.834 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.845 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.875 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.883 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.901 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.916 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.928 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.933 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.940 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.955 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.970 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.974 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.981 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:11.991 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.004 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.017 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.020 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.039 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.058 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.063 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.067 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.070 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.072 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.159 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.193 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.215 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.230 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.239 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.250 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.263 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.271 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.285 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.309 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.319 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.327 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.330 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.343 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.359 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.364 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.368 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.372 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.389 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.406 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.413 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.415 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.418 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.426 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.444 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.457 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.470 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.476 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.492 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.502 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.511 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.526 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.529 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.546 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.558 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.567 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.579 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.597 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.602 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.610 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.614 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.631 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.637 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.642 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.645 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.649 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.652 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.654 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.658 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.670 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.675 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.706 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.712 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.717 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.755 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.772 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.782 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.798 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.830 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.859 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.873 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.894 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.904 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.919 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.932 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.961 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.974 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.983 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:12.995 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.001 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.019 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.035 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.061 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.066 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.085 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.104 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.108 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.119 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.128 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.134 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.140 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.146 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.150 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.155 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.159 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.166 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.180 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.184 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.187 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.191 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.195 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.199 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.210 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.216 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.221 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.231 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.235 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.244 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.264 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.287 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.299 E/AmbientMusicServiceMana( 1618): oxe: java.lang.reflect.InvocationTargetException
-10-12 01:04:13.299 E/AmbientMusicServiceMana( 1618): Caused by: java.lang.reflect.InvocationTargetException
-10-12 01:04:13.299 E/AmbientMusicServiceMana( 1618): Caused by: java.lang.IllegalStateException: No underlying SoundTriggerModule available
-10-12 01:04:13.308 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.325 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.334 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.342 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.350 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.360 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.369 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.386 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.397 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.403 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.411 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.416 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.421 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.433 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.438 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.450 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.451 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:13.451 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:13.451 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:13.452 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:13.462 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.478 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.485 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.492 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.497 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.504 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.520 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.527 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.532 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.540 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.544 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.549 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.557 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.601 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.615 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.620 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.650 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.760 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.816 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.925 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:13.936 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.118 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:14:40.236 D/CarrierSvcBindHelper( 1050): onPackageRemoved: br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.277 I/ConditionProviders(  521): Disallowing condition provider br.com.fortalezadigitalsecurity.licencas (userSet: true)
+10-12 01:14:40.321 W/WifiService(  521): Couldn't get PackageInfo for package:br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.321 D/WifiService(  521): Remove settings for package:br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.321 D/WifiConfigManager(  521): Remove all networks for app ApplicationInfo{c1263eb br.com.fortalezadigitalsecurity.licencas}
+10-12 01:14:40.327 V/StorageManagerService(  521): Package br.com.fortalezadigitalsecurity.licencas does not have legacy storage
+10-12 01:14:40.327 I/RollbackManager(  521): broadcast=ACTION_PACKAGE_FULLY_REMOVED pkg=br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.359 I/Telecom (  521): CarModeTracker: Package br.com.fortalezadigitalsecurity.licencas is not tracked.: SSH.oR@API🔒
+10-12 01:14:40.361 I/PasspointManager(  521): No app ops listener found for br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.361 W/WifiService(  521): Couldn't get PackageInfo for package:br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.361 D/WifiService(  521): Remove settings for package:br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.361 D/WifiConfigManager(  521): Remove all networks for app ApplicationInfo{6d441a7 br.com.fortalezadigitalsecurity.licencas}
+10-12 01:14:40.364 I/PasspointManager(  521): No app ops listener found for br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.547 I/BlockstoreStorage( 1439): Clearing all the Blockstore Data for package br.com.fortalezadigitalsecurity.licencas [CONTEXT service_id=258 ]
+10-12 01:14:40.556 D/PersistedStoragePackageUninstalledReceiver(  838): Received android.intent.action.PACKAGE_FULLY_REMOVED for br.com.fortalezadigitalsecurity.licencas for u0
+10-12 01:14:40.577 W/SQLiteLog( 1439): (28) double-quoted string literal: "br.com.fortalezadigitalsecurity.licencas"
+10-12 01:14:40.577 D/MediaProvider( 1578): Deleted 0 Android/media items belonging to br.com.fortalezadigitalsecurity.licencas on /data/user/0/com.google.android.providers.media.module/databases/external.db
+10-12 01:14:40.594 D/MediaGrants( 1578): Removed 0 media_grants for 0 user for br.com.fortalezadigitalsecurity.licencas. Reason: Package orphaned
+10-12 01:14:40.598 I/Icing   ( 1439): doRemovePackageData br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.816 D/Launcher.Model( 1086): package removed received br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.816 D/PackageUpdatedTask( 1086): Removing app iconbr.com.fortalezadigitalsecurity.licencas
+10-12 01:14:40.821 D/ModelWriter( 1086): removing items from db . Reason: [removed because the corresponding package or component is removed. mOp=3 removedPackages=[br.com.fortalezadigitalsecurity.licencas] removedComponents=[]]
+10-12 01:14:40.826 I/AiAiEcho( 1562): AppFetcherImplV2 onPackageRemoved br.com.fortalezadigitalsecurity.licencas.
+10-12 01:14:41.212 W/ziparchive( 5317): Unable to open '/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.dm': No such file or directory
+10-12 01:14:41.212 W/ziparchive( 5317): Unable to open '/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.dm': No such file or directory
+10-12 01:14:41.227 I/artd    ( 5317): Running dex2oat: /apex/com.android.art/bin/art_exec --drop-capabilities --set-task-profile=Dex2OatBootComplete --set-priority=background --keep-fds=7:8:9:10:11:12 -- /apex/com.android.art/bin/dex2oat64 --zip-fd=7 --zip-location=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk --oat-fd=8 --oat-location=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/oat/x86_64/base.odex --output-vdex-fd=9 --swap-fd=10 --class-loader-context-fds=11:12 --class-loader-context=PCL[]{PCL[/system_ext/framework/androidx.window.extensions.jar]#PCL[/system_ext/framework/androidx.window.sidecar.jar]} --classpath-dir=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ== --instruction-set=x86_64 --instruction-set-features=default --instruction-set-variant=x86_64 --compiler-filter=verify --compilation-reason=install --compact-dex-level=none --max-image-block-size=524288 --resolve-startup-const-strings=true --generate-mini-debug-info --runtime-arg -Xtarget-sdk-version:36 --runtime-arg -Xhidden-api-policy:enabled --runtime-arg -Xms64m --runtime-arg -Xmx512m --comments=app-version-name:3.0.0,app-version-code:1012,art-version:340818082
+10-12 01:14:41.227 I/artd    ( 5317): Opened FDs: 7:/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk 8:/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/oat/x86_64/base.odex.1wWZCp.tmp 9:/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/oat/x86_64/base.vdex.OHxjKM.tmp 10:/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/oat/x86_64/base.odex.swap.vOnt1G.tmp 11:/system_ext/framework/androidx.window.sidecar.jar 12:/system_ext/framework/androidx.window.extensions.jar 
+10-12 01:14:41.306 W/dex2oat64( 5371): /apex/com.android.art/bin/dex2oat64 --zip-fd=7 --zip-location=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk --oat-fd=8 --oat-location=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/oat/x86_64/base.odex --output-vdex-fd=9 --swap-fd=10 --class-loader-context-fds=11:12 --class-loader-context=PCL[]{PCL[/system_ext/framework/androidx.window.extensions.jar]#PCL[/system_ext/framework/androidx.window.sidecar.jar]} --classpath-dir=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ== --instruction-set=x86_64 --instruction-set-features=default --instruction-set-variant=x86_64 --compiler-filter=verify --compilation-reason=install --compact-dex-level=none --max-image-block-size=524288 --resolve-startup-const-strings=true --generate-mini-debug-info --runtime-arg -Xtarget-sdk-version:36 --runtime-arg -Xhidden-api-policy:enabled --runtime-arg -Xms64m --runtime-arg -Xmx512m --comments=app-version-name:3.0.0,app-version-code:1012,art-version:340818082
+10-12 01:14:41.306 I/dex2oat64( 5371): /apex/com.android.art/bin/dex2oat64 --output-vdex-fd=9 --class-loader-context-fds=11:12 --class-loader-context=PCL[]{PCL[/system_ext/framework/androidx.window.extensions.jar]#PCL[/system_ext/framework/androidx.window.sidecar.jar]} --classpath-dir=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ== --compiler-filter=verify --compilation-reason=install --compact-dex-level=none --max-image-block-size=524288 --resolve-startup-const-strings=true --generate-mini-debug-info --comments=app-version-name:3.0.0,app-version-code:1012,art-version:340818082
+10-12 01:14:41.602 I/ArtService(  521): Dexopt result: [packageName = br.com.fortalezadigitalsecurity.licencas] DexContainerFileDexoptResult{dexContainerFile=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk, primaryAbi=true, abi=x86_64, actualCompilerFilter=verify, status=PERFORMED, dex2oatWallTimeMillis=373, dex2oatCpuTimeMillis=120, sizeBytes=1050204, sizeBeforeBytes=0}
+10-12 01:14:41.603 V/BackupManagerService(  521): [UserID:0] restoreAtInstall pkg=br.com.fortalezadigitalsecurity.licencas token=3 restoreSet=0
+10-12 01:14:41.631 I/SdkSandboxManager(  521): No SDKs used. Skipping SDK data reconcilation for CallingInfo{mUid=10193, mPackageName='br.com.fortalezadigitalsecurity.licencas, mAppProcessToken='null'}
+10-12 01:14:41.635 D/CarrierSvcBindHelper( 1050): onPackageAdded: br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:41.639 D/ImsResolver( 1050): maybeAddedImsService, packageName: br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:41.648 I/SafetyLabelChangedBroadcastReceiver(  838): received broadcast packageName: br.com.fortalezadigitalsecurity.licencas, current user: UserHandle{0}, packageChangeEvent: NEW_INSTALL, intent user: UserHandle{0}
+10-12 01:14:41.657 I/ActivityManager(  521): Force stopping br.com.fortalezadigitalsecurity.licencas appid=10193 user=0: from pid 5380
+10-12 01:14:41.665 D/CarrierSvcBindHelper( 1050): onHandleForceStop: [br.com.fortalezadigitalsecurity.licencas]
+10-12 01:14:41.666 D/CarrierSvcBindHelper( 1050): onPackageModified: br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:41.705 D/ImsResolver( 1050): maybeAddedImsService, packageName: br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:41.728 I/AiAiEcho( 1562): AppFetcherImplV2 updateApps package:[br.com.fortalezadigitalsecurity.licencas], userId:[0], reason:[package is added.].
+10-12 01:14:41.731 V/WindowManagerShell(  837): Transition requested: android.os.BinderProxy@269bd49 TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=10 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity } baseActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} topActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} origActivity=null realActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} numActivities=1 lastActiveTime=84452 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@e28064e} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{74aa36f br.com.fortalezadigitalsecurity.licencas.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-12 01:14:41.738 I/ActivityTaskManager(  521): START u0 {flg=0x10000000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity} with LAUNCH_SINGLE_TOP from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+10-12 01:14:41.759 I/ActivityManager(  521): Start proc 5388:br.com.fortalezadigitalsecurity.licencas/u0a193 for next-top-activity {br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity}
+10-12 01:14:41.759 D/CoreBackPreview(  521): Window{78ccc93 u0 Splash Screen br.com.fortalezadigitalsecurity.licencas}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@5ad9eef, mPriority=0, mIsAnimationCallback=false}
+10-12 01:14:41.819 V/WindowManager(  521): Sent Transition #10 createdAt=10-12 01:14:41.707 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=10 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity } baseActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} topActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} origActivity=null realActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} numActivities=1 lastActiveTime=84452 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{6995f9 Task{e049544 #10 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{3ce93e br.com.fortalezadigitalsecurity.licencas.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-12 01:14:41.820 V/WindowManager(  521):     info={id=10 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{6995f9 Task{e049544 #10 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} m=OPEN f=NONE leash=Surface(name=Task=10)/@0x1b686fd sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{d33000c Task{5e18c39 #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xd6274e5 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-12 01:14:41.878 D/nativeloader( 5388): Configuring clns-6 for other apk /data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/lib/x86_64:/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:41.901 I/AiAiEcho( 1562): AppFetcherImpl onPackageChanged br.com.fortalezadigitalsecurity.licencas.
+10-12 01:14:41.903 I/AiAiEcho( 1562): AppIndexer Package:[br.com.fortalezadigitalsecurity.licencas] UserProfile:[0] Enabled:[true].
+10-12 01:14:41.903 I/AiAiEcho( 1562): AppFetcherImplV2 updateApps package:[br.com.fortalezadigitalsecurity.licencas], userId:[0], reason:[package is updated.].
+10-12 01:14:41.904 V/GraphicsEnvironment( 5388): ANGLE GameManagerService for br.com.fortalezadigitalsecurity.licencas: false
+10-12 01:14:41.904 V/GraphicsEnvironment( 5388): br.com.fortalezadigitalsecurity.licencas is not listed in per-application setting
+10-12 01:14:41.907 D/WM-WrkMgrInitializer( 5388): Initializing WorkManager with default configuration.
+10-12 01:14:41.909 E/AndroidRuntime( 5388): Process: br.com.fortalezadigitalsecurity.licencas, PID: 5388
+10-12 01:14:41.909 E/AndroidRuntime( 5388): 	at androidx.work.WorkManagerInitializer.b(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:59)
+10-12 01:14:41.916 W/ActivityTaskManager(  521):   Force finishing activity br.com.fortalezadigitalsecurity.licencas/.MainActivity
+10-12 01:14:41.942 I/ActivityManager(  521): Process br.com.fortalezadigitalsecurity.licencas (pid 5388) has died: fg  TOP 
+10-12 01:14:41.981 V/WindowManager(  521):     info={id=11 t=CLOSE f=0x10 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{d33000c Task{5e18c39 #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0xd6274e5 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{6995f9 Task{e049544 #10 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} m=CLOSE f=NONE leash=Surface(name=Task=10)/@0x1b686fd sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{68a247 token=android.os.Binder@a05d986})/@0x5dcf943 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-12 01:14:42.023 D/CoreBackPreview(  521): Window{78ccc93 u0 Splash Screen br.com.fortalezadigitalsecurity.licencas EXITING}: Setting back callback null
+10-12 01:14:42.023 W/InputManager-JNI(  521): Input channel object '78ccc93 Splash Screen br.com.fortalezadigitalsecurity.licencas (client)' was disposed without first being removed with the input manager!
+10-12 01:14:42.369 I/BlockstoreStorage( 1439): Clearing Blockstore Data for package br.com.fortalezadigitalsecurity.licencas [CONTEXT service_id=258 ]
+10-12 01:14:42.423 W/ActivityTaskManager(  521): Activity top resumed state loss timeout for ActivityRecord{1a4b3d6 u0 br.com.fortalezadigitalsecurity.licencas/.MainActivity t-1 f}}
+10-12 01:14:42.442 I/ProximityAuth( 1394): [RecentAppsMediator] Package added: (user=UserHandle{0}) br.com.fortalezadigitalsecurity.licencas
+10-12 01:14:45.729 I/ActivityManager(  521): Process com.google.android.gms (pid 1439) has died: fg  BTOP
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.GmsApiService in 1000ms for connection
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.GmsBoundBrokerService in 11000ms for connection
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.container.ExternalFileApkService in 21000ms for start-requested
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.icing.service.AppIndexingService in 31000ms for connection
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.wallet.service.PaymentService in 41000ms for connection
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.icing.service.IndexWorkerService in 51000ms for start-requested
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.GmsIntentOperationService in 61000ms for start-requested
+10-12 01:14:45.747 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.icing.service.IndexService in 71000ms for connection
+10-12 01:14:45.752 I/ActivityManager(  521): Process com.google.android.gms.persistent (pid 1394) has died: fg  BTOP
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService in 80993ms for start-requested
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/com.google.android.location.reporting.service.ReportingAndroidService in 90993ms for connection
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.nearby.messages.service.NearbyMessagesService in 100993ms for start-requested
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.thunderbird.EmergencyPersistentService in 110993ms for start-requested
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.geotimezone.GeoTimeZoneService in 120993ms for connection
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.common.stats.GmsCoreStatsService in 130993ms for start-requested
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.nearby.exposurenotification.service.ExposureMatchingService in 140993ms for start-requested
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.PersistentDirectBootAwareApiService in 150993ms for connection
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService in 160993ms for start-requested
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService in 170993ms for start-requested
+10-12 01:14:45.754 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.auth.setup.devicesignals.LockScreenService in 180992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService in 190992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.location.geocode.GeocodeService in 200992ms for connection
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.PersistentIntentOperationService in 210992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.gcm.nts.SchedulerService in 220992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.location.persistent.LocationPersistentService in 230992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.gcm.GcmService in 240992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.PersistentBoundBrokerService in 250992ms for connection
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/com.google.android.location.network.NetworkLocationService in 260992ms for connection
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService in 270992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService in 280992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService in 290992ms for connection
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.auth.account.authenticator.GoogleAccountAuthenticatorService in 300992ms for connection
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.nearby.sharing.ReceiveSurfaceService in 310992ms for start-requested
+10-12 01:14:45.755 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/com.google.android.location.fused.FusedLocationService in 320992ms for connection
+10-12 01:14:45.764 I/ActivityManager(  521): Start proc 5474:com.google.android.gms.persistent/u0a131 for service {com.google.android.gms/com.google.android.gms.chimera.PersistentBoundBrokerService}
+10-12 01:14:45.780 I/ActivityManager(  521): Start proc 5475:com.google.android.gms/u0a131 for content provider {com.google.android.gms/com.google.android.gms.people.service.galprovider.PeopleGalProvider}
+10-12 01:14:45.794 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService in 960ms for other
+10-12 01:14:45.794 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.reporting.service.ReportingAndroidService in 10960ms for other
+10-12 01:14:45.794 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.nearby.messages.service.NearbyMessagesService in 20960ms for other
+10-12 01:14:45.794 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.thunderbird.EmergencyPersistentService in 30960ms for other
+10-12 01:14:45.794 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.geotimezone.GeoTimeZoneService in 40960ms for other
+10-12 01:14:45.794 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.common.stats.GmsCoreStatsService in 50960ms for other
+10-12 01:14:45.794 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.nearby.exposurenotification.service.ExposureMatchingService in 60960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.chimera.PersistentDirectBootAwareApiService in 70960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService in 80960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService in 90960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.auth.setup.devicesignals.LockScreenService in 100960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService in 110960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.location.geocode.GeocodeService in 120960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.chimera.PersistentIntentOperationService in 130960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.gcm.nts.SchedulerService in 140960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.location.persistent.LocationPersistentService in 150960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.gcm.GcmService in 160960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.network.NetworkLocationService in 170960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService in 180960ms for other
+10-12 01:14:45.795 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService in 190960ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService in 200960ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.auth.account.authenticator.GoogleAccountAuthenticatorService in 210960ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.nearby.sharing.ReceiveSurfaceService in 220960ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.fused.FusedLocationService in 230960ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.contextmanager.service.ContextManagerService in 958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.reporting.service.ReportingAndroidService in 10958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.nearby.messages.service.NearbyMessagesService in 20958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.thunderbird.EmergencyPersistentService in 30958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.geotimezone.GeoTimeZoneService in 40958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.common.stats.GmsCoreStatsService in 50958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.nearby.exposurenotification.service.ExposureMatchingService in 60958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.chimera.PersistentDirectBootAwareApiService in 70958ms for other
+10-12 01:14:45.796 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.server.GoogleLocationService in 80958ms for other
+10-12 01:14:45.797 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.GoogleLocationManagerService in 90958ms for other
+10-12 01:14:45.797 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.auth.setup.devicesignals.LockScreenService in 100958ms for other
+10-12 01:14:45.797 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.clearcut.debug.ClearcutDebugDumpService in 110958ms for other
+10-12 01:14:45.797 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.location.geocode.GeocodeService in 120958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.chimera.PersistentIntentOperationService in 130958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.gcm.nts.SchedulerService in 140958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.location.persistent.LocationPersistentService in 150958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.gcm.GcmService in 160958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.network.NetworkLocationService in 170958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService in 180958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.deviceconnection.service.DeviceConnectionWatcherService in 190958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.internal.server.HardwareArProviderService in 200958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.auth.account.authenticator.GoogleAccountAuthenticatorService in 210958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/.nearby.sharing.ReceiveSurfaceService in 220958ms for other
+10-12 01:14:45.798 W/ActivityManager(  521): Rescheduling restart of crashed service com.google.android.gms/com.google.android.location.fused.FusedLocationService in 230958ms for other
+10-12 01:14:46.533 I/ActivityManager(  521): Start proc 5672:com.android.externalstorage/u0a84 for content provider {com.android.externalstorage/com.android.externalstorage.ExternalStorageProvider}
+10-12 01:14:54.107 I/ActivityManager(  521): Process com.google.android.gms.ui (pid 4368) has died: fg  SVC 
+10-12 01:14:54.108 W/ActivityManager(  521): Scheduling restart of crashed service com.google.android.gms/.chimera.UiIntentOperationService in 1000ms for start-requested
+10-12 01:14:55.116 I/ActivityManager(  521): Start proc 5902:com.google.android.gms.ui/u0a131 for service {com.google.android.gms/com.google.android.gms.chimera.UiIntentOperationService}

@@ -1,252 +1,32 @@
-10-12 01:04:14.277 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.302 I/ActivityManager(  520): Force stopping br.com.fortalezadigitalsecurity.licencas appid=10193 user=0: from pid 5985
-10-12 01:04:14.320 D/CarrierSvcBindHelper( 1047): onHandleForceStop: [br.com.fortalezadigitalsecurity.licencas]
-10-12 01:04:14.341 E/d       ( 1725): RuntimeException while executing runnable cb{com.google.apps.tiktok.tracing.ej@8492696} with executor MoreExecutors.directExecutor()
-10-12 01:04:14.341 E/d       ( 1725): java.lang.NullPointerException: Attempt to read from field 'java.lang.String com.google.android.libraries.mdi.download.ae.b' on a null object reference in method 'void com.google.android.libraries.mdi.download.h.bq.gH(java.lang.Object)'
-10-12 01:04:14.356 E/d       ( 1725): RuntimeException while executing runnable cb{com.google.apps.tiktok.tracing.ej@e93319c} with executor MoreExecutors.directExecutor()
-10-12 01:04:14.356 E/d       ( 1725): java.lang.NullPointerException: Attempt to read from field 'java.lang.String com.google.android.libraries.mdi.download.ae.b' on a null object reference in method 'void com.google.android.libraries.mdi.download.h.bq.gH(java.lang.Object)'
-10-12 01:04:14.379 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.409 D/AndroidRuntime( 5988): >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
-10-12 01:04:14.415 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.416 I/AndroidRuntime( 5988): Using default boot image
-10-12 01:04:14.416 I/AndroidRuntime( 5988): Leaving lock profiling enabled
-10-12 01:04:14.450 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.479 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.491 D/nativeloader( 5988): InitDefaultPublicLibraries for_preload=1: libandroid.so:libaaudio.so:libamidi.so:libbinder_ndk.so:libc.so:libcamera2ndk.so:libdl.so:libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libicu.so:libicui18n.so:libicuuc.so:libjnigraphics.so:liblog.so:libmediandk.so:libm.so:libnativehelper.so:libnativewindow.so:libOpenMAXAL.so:libOpenSLES.so:libRS.so:libstdc++.so:libsync.so:libvulkan.so:libwebviewchromium_plat_support.so:libz.so
-10-12 01:04:14.522 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.535 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.541 W/libc    ( 5988): Access denied finding property "ro.product.brand_for_attestation"
-10-12 01:04:14.541 W/libc    ( 5988): Access denied finding property "ro.product.model_for_attestation"
-10-12 01:04:14.542 D/AndroidRuntime( 5988): Calling main entry com.android.commands.monkey.Monkey
-10-12 01:04:14.542 W/Monkey  ( 5988): args: [-p, br.com.fortalezadigitalsecurity.licencas, -c, android.intent.category.LAUNCHER, 1]
-10-12 01:04:14.542 W/Monkey  ( 5988):  arg: "br.com.fortalezadigitalsecurity.licencas"
-10-12 01:04:14.542 W/Monkey  ( 5988): data="br.com.fortalezadigitalsecurity.licencas"
-10-12 01:04:14.557 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.573 I/ActivityTaskManager(  520): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity} with LAUNCH_SINGLE_TOP from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
-10-12 01:04:14.580 V/WindowManagerShell(  838): Transition requested: android.os.BinderProxy@91c1316 TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity } baseActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} topActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} origActivity=null realActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} numActivities=1 lastActiveTime=117015 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@7c90497} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{3c72684 br.com.fortalezadigitalsecurity.licencas.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
-10-12 01:04:14.594 I/ActivityManager(  520): Start proc 6003:br.com.fortalezadigitalsecurity.licencas/u0a193 for next-top-activity {br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity}
-10-12 01:04:14.597 D/CoreBackPreview(  520): Window{9f427bf u0 Splash Screen br.com.fortalezadigitalsecurity.licencas}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@8e016b6, mPriority=0, mIsAnimationCallback=false}
-10-12 01:04:14.603 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.614 W/AiAiAutofill( 1618): java.lang.SecurityException: caller is not user's Augmented Autofill Service
-10-12 01:04:14.621 V/WindowManager(  520): Sent Transition #12 createdAt=10-12 01:04:14.565 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=true baseIntent=Intent { act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity } baseActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} topActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} origActivity=null realActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} numActivities=1 lastActiveTime=117015 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{ed4f108 Task{7e6b2c4 #11 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{64b40a1 br.com.fortalezadigitalsecurity.licencas.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
-10-12 01:04:14.621 V/WindowManager(  520):     info={id=12 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{ed4f108 Task{7e6b2c4 #11 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} m=OPEN f=NONE leash=Surface(name=Task=11)/@0x5575725 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{2f91400 Task{36eb94a #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0x24b5b2c sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
-10-12 01:04:14.628 I/AndroidRuntime( 5988): VM exiting with result code 0.
-10-12 01:04:14.655 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.668 D/nativeloader( 6003): Configuring clns-6 for other apk /data/app/~~SLmfKyOoJRogdfEcAjgxLA==/br.com.fortalezadigitalsecurity.licencas-q8F-xt-6kri2S_Tzs01D4w==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~SLmfKyOoJRogdfEcAjgxLA==/br.com.fortalezadigitalsecurity.licencas-q8F-xt-6kri2S_Tzs01D4w==/lib/x86_64:/data/app/~~SLmfKyOoJRogdfEcAjgxLA==/br.com.fortalezadigitalsecurity.licencas-q8F-xt-6kri2S_Tzs01D4w==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/br.com.fortalezadigitalsecurity.licencas
-10-12 01:04:14.678 V/GraphicsEnvironment( 6003): ANGLE GameManagerService for br.com.fortalezadigitalsecurity.licencas: false
-10-12 01:04:14.678 V/GraphicsEnvironment( 6003): br.com.fortalezadigitalsecurity.licencas is not listed in per-application setting
-10-12 01:04:14.680 D/WM-WrkMgrInitializer( 6003): Initializing WorkManager with default configuration.
-10-12 01:04:14.681 D/AndroidRuntime( 6003): Shutting down VM
---------- beginning of crash
-10-12 01:04:14.682 E/AndroidRuntime( 6003): FATAL EXCEPTION: main
-10-12 01:04:14.682 E/AndroidRuntime( 6003): Process: br.com.fortalezadigitalsecurity.licencas, PID: 6003
-10-12 01:04:14.682 E/AndroidRuntime( 6003): java.lang.RuntimeException: Unable to get provider androidx.startup.InitializationProvider: p5: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.app.ActivityThread.installProvider(ActivityThread.java:7770)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.app.ActivityThread.installContentProviders(ActivityThread.java:7276)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6983)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.app.ActivityThread.-$$Nest$mhandleBindApplication(Unknown Source:0)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2236)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.os.Handler.dispatchMessage(Handler.java:106)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.os.Looper.loopOnce(Looper.java:205)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.os.Looper.loop(Looper.java:294)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.app.ActivityThread.main(ActivityThread.java:8177)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at java.lang.reflect.Method.invoke(Native Method)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): Caused by: p5: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at k1.t(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:104)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at k1.q(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:86)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at androidx.startup.InitializationProvider.onCreate(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:57)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2619)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.content.ContentProvider.attachInfo(ContentProvider.java:2589)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at android.app.ActivityThread.installProvider(ActivityThread.java:7765)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	... 11 more
-10-12 01:04:14.682 E/AndroidRuntime( 6003): Caused by: java.lang.NoSuchMethodException: androidx.work.impl.WorkDatabase_Impl.<init> []
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at java.lang.Class.getConstructor0(Class.java:3325)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at java.lang.Class.getDeclaredConstructor(Class.java:3063)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at zw.c(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:592)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at androidx.work.WorkManagerInitializer.b(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:59)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	at k1.t(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:90)
-10-12 01:04:14.682 E/AndroidRuntime( 6003): 	... 16 more
-10-12 01:04:14.688 W/ActivityTaskManager(  520):   Force finishing activity br.com.fortalezadigitalsecurity.licencas/.MainActivity
-10-12 01:04:14.695 I/ActivityManager(  520): Showing crash dialog for package br.com.fortalezadigitalsecurity.licencas u0
-10-12 01:04:14.699 I/DropBoxManagerService(  520): add tag=data_app_crash isTagEnabled=true flags=0x2
-10-12 01:04:14.709 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.726 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.732 D/CoreBackPreview(  520): Window{37e753a u0 Application Error: br.com.fortalezadigitalsecurity.licencas}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper@6490763, mPriority=0, mIsAnimationCallback=false}
-10-12 01:04:14.742 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.762 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.789 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.801 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.832 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.906 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.929 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.950 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.977 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.987 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:14.996 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.013 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:15.017 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:15.017 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:15.018 E/AppOps  (  520): java.lang.SecurityException: Specified package "android" under uid 10179 but it is not
-10-12 01:04:15.025 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.033 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.053 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.074 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.112 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.131 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.151 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.179 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.188 W/ActivityTaskManager(  520): Activity top resumed state loss timeout for ActivityRecord{83a19d7 u0 br.com.fortalezadigitalsecurity.licencas/.MainActivity t11 f}}
-10-12 01:04:15.228 W/ActivityTaskManager(  520): Activity pause timeout for ActivityRecord{83a19d7 u0 br.com.fortalezadigitalsecurity.licencas/.MainActivity t11 f}}
-10-12 01:04:15.235 W/AppSearchIcing(  520): icing-search-engine.cc:283: Error: 5, Message: Document (com.google.android.googlequicksearchbox$OneSearchZeroStateGoogleSuggestions/default, zp) not found.
-10-12 01:04:15.291 V/WindowManager(  520):     info={id=13 t=CLOSE f=0x10 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{2f91400 Task{36eb94a #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0x24b5b2c sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{ed4f108 Task{7e6b2c4 #11 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0x5575725 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{13269f token=android.os.Binder@360d83e})/@0xfde6939 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
-10-12 01:04:15.311 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.325 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.327 W/AiAiAutofill( 1618): java.lang.SecurityException: caller is not user's Augmented Autofill Service
-10-12 01:04:15.343 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.460 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.512 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.534 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.553 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.579 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.624 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.663 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.721 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.763 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.820 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.905 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.936 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:15.980 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.004 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.051 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.091 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.117 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.149 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.168 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.205 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.217 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.275 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.278 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.304 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.337 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.341 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.353 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.362 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.370 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.450 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.489 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.538 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.617 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.700 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.749 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.789 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.814 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.863 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.870 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.890 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.907 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.951 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:16.994 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.029 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.053 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.060 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.099 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.106 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.129 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.198 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.219 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.244 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.253 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.258 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.271 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.391 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.400 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.414 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.423 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.440 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.457 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.475 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.483 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.498 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.507 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.515 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.521 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.536 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.548 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.562 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.570 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.584 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.616 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.639 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.668 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.688 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.698 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.720 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.749 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.764 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.777 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.785 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.791 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.804 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.814 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.824 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.832 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.848 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.860 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.880 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.898 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.906 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.916 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.925 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.937 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.943 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.957 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.977 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.987 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:17.998 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.007 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.016 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.022 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.042 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.055 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.067 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.091 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.110 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.129 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.158 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.169 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.187 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.208 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.221 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.255 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.280 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.299 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.306 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.318 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.336 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.342 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.348 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.361 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.370 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.376 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.384 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.391 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.409 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.413 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.417 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.422 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.444 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:18.446 I/NamespaceManager( 5403): Package com.google.android.crashrecovery name not found! Using module version.
-10-12 01:04:25.333 D/ActivityManager(  520): freezing 6003 br.com.fortalezadigitalsecurity.licencas
-10-12 01:04:25.333 W/ActivityTaskManager(  520): Activity destroy timeout for ActivityRecord{83a19d7 u0 br.com.fortalezadigitalsecurity.licencas/.MainActivity t11 f}}
-10-12 01:04:25.334 W/InputManager-JNI(  520): Input channel object '9f427bf Splash Screen br.com.fortalezadigitalsecurity.licencas (client)' was disposed without first being removed with the input manager!
-10-12 01:04:25.334 D/ActivityManager(  520): Reschedule freeze for process 6003 br.com.fortalezadigitalsecurity.licencas (outstanding txns), timeout=2103
-10-12 01:04:27.439 D/ActivityManager(  520): freezing 6003 br.com.fortalezadigitalsecurity.licencas
-10-12 01:04:27.440 D/ActivityManager(  520): Reschedule freeze for process 6003 br.com.fortalezadigitalsecurity.licencas (outstanding txns), timeout=1000
-10-12 01:04:28.441 D/ActivityManager(  520): freezing 6003 br.com.fortalezadigitalsecurity.licencas
-10-12 01:04:28.442 D/ActivityManager(  520): Kill app due to repeated failure to freeze binder: 6003 br.com.fortalezadigitalsecurity.licencas
-10-12 01:04:28.442 I/ActivityManager(  520): Killing 6003:br.com.fortalezadigitalsecurity.licencas/u0a193 (adj 900): excessive binder traffic during cached
-10-12 01:04:28.448 D/CoreBackPreview(  520): Window{37e753a u0 Application Error: br.com.fortalezadigitalsecurity.licencas}: Setting back callback null
-10-12 01:04:28.450 W/ActivityManager(  520): Ignoring remove of inactive process: ProcessRecord{fdd7519 0:br.com.fortalezadigitalsecurity.licencas/u0a193}
-10-12 01:04:28.453 W/InputManager-JNI(  520): Input channel object '37e753a Application Error: br.com.fortalezadigitalsecurity.licencas (client)' was disposed without first being removed with the input manager!
+10-12 01:15:07.363 I/ActivityManager(  521): Force stopping br.com.fortalezadigitalsecurity.licencas appid=10193 user=0: from pid 6028
+10-12 01:15:07.374 D/CarrierSvcBindHelper( 1050): onHandleForceStop: [br.com.fortalezadigitalsecurity.licencas]
+10-12 01:15:07.402 I/ActivityTaskManager(  521): START u0 {flg=0x10000000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity} with LAUNCH_SINGLE_TOP from uid 2000 (BAL_ALLOW_PERMISSION) result code=0
+10-12 01:15:07.404 V/WindowManagerShell(  837): Transition requested: android.os.BinderProxy@2182caa TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity } baseActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} topActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} origActivity=null realActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} numActivities=1 lastActiveTime=110120 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{android.window.IWindowContainerToken$Stub$Proxy@763009b} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{238ac38 br.com.fortalezadigitalsecurity.licencas.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-12 01:15:07.414 I/ActivityManager(  521): Start proc 6037:br.com.fortalezadigitalsecurity.licencas/u0a193 for next-top-activity {br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity}
+10-12 01:15:07.419 D/CoreBackPreview(  521): Window{a169152 u0 Splash Screen br.com.fortalezadigitalsecurity.licencas}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.IOnBackInvokedCallback$Stub$Proxy@bb1ed9, mPriority=0, mIsAnimationCallback=false}
+10-12 01:15:07.445 V/WindowManager(  521): Sent Transition #12 createdAt=10-12 01:15:07.392 via request=TransitionRequestInfo { type = OPEN, triggerTask = TaskInfo{userId=0 taskId=11 displayId=0 isRunning=true baseIntent=Intent { flg=0x10000000 cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity } baseActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} topActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} origActivity=null realActivity=ComponentInfo{br.com.fortalezadigitalsecurity.licencas/br.com.fortalezadigitalsecurity.licencas.MainActivity} numActivities=1 lastActiveTime=110120 supportsMultiWindow=true resizeMode=1 isResizeable=true minWidth=-1 minHeight=-1 defaultMinSize=220 token=WCT{RemoteToken{5ed534c Task{8b44ec6 #11 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} topActivityType=1 pictureInPictureParams=null shouldDockBigOverlays=false launchIntoPipHostTaskId=-1 lastParentTaskIdBeforePip=-1 displayCutoutSafeInsets=null topActivityInfo=ActivityInfo{e35cf95 br.com.fortalezadigitalsecurity.licencas.MainActivity} launchCookies=[] positionInParent=Point(0, 0) parentTaskId=-1 isFocused=false isVisible=false isVisibleRequested=false isSleeping=false topActivityInSizeCompat=false topActivityEligibleForLetterboxEducation= false topActivityLetterboxed= false isFromDoubleTap= false topActivityLetterboxVerticalPosition= -1 topActivityLetterboxHorizontalPosition= -1 topActivityLetterboxWidth=-1 topActivityLetterboxHeight=-1 locusId=null displayAreaFeatureId=1 cameraCompatControlState=hidden}, remoteTransition = null, displayChange = null }
+10-12 01:15:07.445 V/WindowManager(  521):     info={id=12 t=OPEN f=0x0 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{5ed534c Task{8b44ec6 #11 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} m=OPEN f=NONE leash=Surface(name=Task=11)/@0x7e8709e sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{d33000c Task{5e18c39 #1 type=home}}} m=TO_BACK f=SHOW_WALLPAPER leash=Surface(name=Task=1)/@0xd6274e5 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-12 01:15:07.470 D/nativeloader( 6037): Configuring clns-6 for other apk /data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk. target_sdk_version=36, uses_libraries=, library_path=/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/lib/x86_64:/data/app/~~mouq72pf8tHoJoINXupTWA==/br.com.fortalezadigitalsecurity.licencas-d10bklnlaJjJXM0u69VCwQ==/base.apk!/lib/x86_64, permitted_path=/data:/mnt/expand:/data/user/0/br.com.fortalezadigitalsecurity.licencas
+10-12 01:15:07.476 V/GraphicsEnvironment( 6037): ANGLE GameManagerService for br.com.fortalezadigitalsecurity.licencas: false
+10-12 01:15:07.476 V/GraphicsEnvironment( 6037): br.com.fortalezadigitalsecurity.licencas is not listed in per-application setting
+10-12 01:15:07.479 D/WM-WrkMgrInitializer( 6037): Initializing WorkManager with default configuration.
+10-12 01:15:07.481 E/AndroidRuntime( 6037): Process: br.com.fortalezadigitalsecurity.licencas, PID: 6037
+10-12 01:15:07.481 E/AndroidRuntime( 6037): 	at androidx.work.WorkManagerInitializer.b(r8-map-id-f58297f858e001681a60c5c155cf5b33e24cc93deb36e37c8328d8020265b151:59)
+10-12 01:15:07.488 W/ActivityTaskManager(  521):   Force finishing activity br.com.fortalezadigitalsecurity.licencas/.MainActivity
+10-12 01:15:07.490 I/ActivityManager(  521): Showing crash dialog for package br.com.fortalezadigitalsecurity.licencas u0
+10-12 01:15:07.520 D/CoreBackPreview(  521): Window{f97cc99 u0 Application Error: br.com.fortalezadigitalsecurity.licencas}: Setting back callback OnBackInvokedCallbackInfo{mCallback=android.window.WindowOnBackInvokedDispatcher$OnBackInvokedCallbackWrapper@1fd75d1, mPriority=0, mIsAnimationCallback=false}
+10-12 01:15:07.989 W/ActivityTaskManager(  521): Activity top resumed state loss timeout for ActivityRecord{1007ca1 u0 br.com.fortalezadigitalsecurity.licencas/.MainActivity t11 f}}
+10-12 01:15:07.989 W/ActivityTaskManager(  521): Activity pause timeout for ActivityRecord{1007ca1 u0 br.com.fortalezadigitalsecurity.licencas/.MainActivity t11 f}}
+10-12 01:15:08.119 V/WindowManager(  521):     info={id=13 t=CLOSE f=0x10 trk=0 r=[0@Point(0, 0)] c=[{WCT{RemoteToken{d33000c Task{5e18c39 #1 type=home}}} m=TO_FRONT f=SHOW_WALLPAPER|MOVE_TO_TOP leash=Surface(name=Task=1)/@0xd6274e5 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{WCT{RemoteToken{5ed534c Task{8b44ec6 #11 type=standard I=br.com.fortalezadigitalsecurity.licencas/.MainActivity}}} m=CLOSE f=NONE leash=Surface(name=Task=11)/@0x7e8709e sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0},{null m=TO_FRONT f=IS_WALLPAPER leash=Surface(name=WallpaperWindowToken{68a247 token=android.os.Binder@a05d986})/@0x5dcf943 sb=Rect(0, 0 - 320, 640) eb=Rect(0, 0 - 320, 640) d=0}]}
+10-12 01:15:18.522 W/ActivityTaskManager(  521): Activity destroy timeout for ActivityRecord{1007ca1 u0 br.com.fortalezadigitalsecurity.licencas/.MainActivity t11 f}}
+10-12 01:15:18.523 W/InputManager-JNI(  521): Input channel object 'a169152 Splash Screen br.com.fortalezadigitalsecurity.licencas (client)' was disposed without first being removed with the input manager!
+10-12 01:15:18.524 D/ActivityManager(  521): freezing 6037 br.com.fortalezadigitalsecurity.licencas
+10-12 01:15:18.525 D/ActivityManager(  521): Reschedule freeze for process 6037 br.com.fortalezadigitalsecurity.licencas (outstanding txns), timeout=2001
+10-12 01:15:20.527 D/ActivityManager(  521): freezing 6037 br.com.fortalezadigitalsecurity.licencas
+10-12 01:15:20.529 D/ActivityManager(  521): Reschedule freeze for process 6037 br.com.fortalezadigitalsecurity.licencas (outstanding txns), timeout=1000
+10-12 01:15:21.530 D/ActivityManager(  521): freezing 6037 br.com.fortalezadigitalsecurity.licencas
+10-12 01:15:21.531 D/ActivityManager(  521): Kill app due to repeated failure to freeze binder: 6037 br.com.fortalezadigitalsecurity.licencas
+10-12 01:15:21.532 I/ActivityManager(  521): Killing 6037:br.com.fortalezadigitalsecurity.licencas/u0a193 (adj 900): excessive binder traffic during cached
+10-12 01:15:21.537 D/CoreBackPreview(  521): Window{f97cc99 u0 Application Error: br.com.fortalezadigitalsecurity.licencas}: Setting back callback null
+10-12 01:15:21.539 W/ActivityManager(  521): Ignoring remove of inactive process: ProcessRecord{27f81b4 0:br.com.fortalezadigitalsecurity.licencas/u0a193}
+10-12 01:15:21.541 W/InputManager-JNI(  521): Input channel object 'f97cc99 Application Error: br.com.fortalezadigitalsecurity.licencas (client)' was disposed without first being removed with the input manager!

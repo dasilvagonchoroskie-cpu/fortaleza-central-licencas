@@ -1,13 +1,38 @@
-Montagem 11 | branch diagnostico | commit e7f65b3010fc30ea63a0529fe3779997bd18e303
+Montagem 12 | branch diagnostico | commit ed3013b225bdbd45138f009e1d579f6308ce81e4
 pacote: success | central: success | emulador: failure
 Android 14
 === 1) 2.3 e depois 3.0 por cima ===
 Success
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+TotalTime: 3536
+WaitTime: 3544
+Complete
 Success
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+WaitTime: 401
+Complete
 1-por-cima-da-2.3: FECHOU (processo morto)
 === 2) instalacao do zero ===
 Success
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+WaitTime: 223
+Complete
 2-do-zero: FECHOU (processo morto)
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+WaitTime: 101
+Complete
 3-segunda-abertura: FECHOU (processo morto)
 resultado: FALHOU
 
@@ -75,7 +100,7 @@ Try `flutter pub outdated` for more information.
 Upgrading analysis_options.yaml to exclude build and platform directories.
 === analise do pacote ===
 Analyzing fortaleza_licenca...                                  
-No issues found! (ran in 8.0s)
+No issues found! (ran in 8.1s)
 === testes do pacote ===
 ::group::✅ Passing tests
 ✅ /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/pacote/fortaleza_licenca/test/textos_e_assinatura_test.dart: codigo do aparelho (igual ao taximetro desde a versao 1) mesma conta do taximetro: o codigo de quem ja usa nao muda
@@ -189,7 +214,7 @@ Changed 55 dependencies!
 Try `flutter pub outdated` for more information.
 === analise da Central ===
 Analyzing fortaleza-central-licencas...                         
-No issues found! (ran in 8.2s)
+No issues found! (ran in 8.3s)
 === testes da Central ===
 ::group::✅ Passing tests
 ✅ textos WhatsApp
@@ -203,7 +228,7 @@ No issues found! (ran in 8.2s)
 ✅ tela de pedidos: ve o codigo, escolhe 30 dias e libera
 ::endgroup::
 🎉 9 tests passed.
-=== compilacao (codigo 1011) ===
+=== compilacao (codigo 1012) ===
 Running Gradle task 'assembleRelease'...                        
 Loading package information...                                                  
 Loading local repository...                                                     
@@ -298,7 +323,7 @@ Loading local repository...
 [=======================================] 100% Unzipping... android-ndk-r28c/CHA
 Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 5224 bytes (99.7% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
 Caught exception: Already watching path: /home/runner/work/fortaleza-central-licencas/fortaleza-central-licencas/android
-Running Gradle task 'assembleRelease'...                          269.1s
+Running Gradle task 'assembleRelease'...                          261.7s
 ✓ Built build/app/outputs/flutter-apk/app-release.apk (24.3MB)
-package: name='br.com.fortalezadigitalsecurity.licencas' versionCode='1011' versionName='3.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+package: name='br.com.fortalezadigitalsecurity.licencas' versionCode='1012' versionName='3.0.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
 Chave e pacote conferidos: instala por cima da Central 2.x.

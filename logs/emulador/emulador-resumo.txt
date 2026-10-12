@@ -1,10 +1,35 @@
 Android 14
 === 1) 2.3 e depois 3.0 por cima ===
 Success
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+TotalTime: 3536
+WaitTime: 3544
+Complete
 Success
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+WaitTime: 401
+Complete
 1-por-cima-da-2.3: FECHOU (processo morto)
 === 2) instalacao do zero ===
 Success
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+WaitTime: 223
+Complete
 2-do-zero: FECHOU (processo morto)
+Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
+Status: ok
+LaunchState: UNKNOWN (0)
+Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
+WaitTime: 101
+Complete
 3-segunda-abertura: FECHOU (processo morto)
 resultado: FALHOU
