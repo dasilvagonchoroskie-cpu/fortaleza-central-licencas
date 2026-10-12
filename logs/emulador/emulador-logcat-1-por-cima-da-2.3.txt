@@ -1,0 +1,300 @@
+10-12 01:03:23.704 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
+10-12 01:03:24.065 E/HardwareInfoFeatureProviderImpl( 1048): java.lang.NumberFormatException: For input string: "E"
+10-12 01:03:24.078 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.development.DevelopmentMemtagFooterPreferenceController
+10-12 01:03:24.078 W/SliceDataConverter( 1048): Caused by: java.lang.ClassNotFoundException: com.android.settings.development.DevelopmentMemtagFooterPreferenceController
+10-12 01:03:24.078 W/SliceDataConverter( 1048): Caused by: java.lang.ClassNotFoundException: com.android.settings.development.DevelopmentMemtagFooterPreferenceController
+10-12 01:03:24.094 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:24.103 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:24.127 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.network.NetworkProviderSimsCategoryController
+10-12 01:03:24.127 W/SliceDataConverter( 1048): Caused by: java.lang.NoSuchMethodException: com.android.settings.network.NetworkProviderSimsCategoryController.<init> [class android.content.Context, class java.lang.String]
+10-12 01:03:24.140 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.fuelgauge.batteryusage.BatteryChartPreferenceController
+10-12 01:03:24.140 W/SliceDataConverter( 1048): Caused by: java.lang.NoSuchMethodException: com.android.settings.fuelgauge.batteryusage.BatteryChartPreferenceController.<init> [class android.content.Context, class java.lang.String]
+10-12 01:03:24.140 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:24.142 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.accessibility.VibrationMainSwitchPreferenceController
+10-12 01:03:24.142 W/SliceDataConverter( 1048): Caused by: java.lang.reflect.InvocationTargetException
+10-12 01:03:24.142 W/SliceDataConverter( 1048): Caused by: java.lang.RuntimeException: Can't create handler inside thread Thread[binder:1048_5,5,main] that has not called Looper.prepare()
+10-12 01:03:24.179 E/SystemServiceRegistry( 1048): android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+10-12 01:03:24.188 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-12 01:03:24.188 W/SliceDataConverter( 1048): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-12 01:03:24.188 W/SliceDataConverter( 1048): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-12 01:03:24.190 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.network.telephony.CallsDefaultSubscriptionController
+10-12 01:03:24.190 W/SliceDataConverter( 1048): Caused by: java.lang.NoSuchMethodException: com.android.settings.network.telephony.CallsDefaultSubscriptionController.<init> [class android.content.Context, class java.lang.String]
+10-12 01:03:24.190 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.network.telephony.CallsDefaultSubscriptionController
+10-12 01:03:24.190 W/SliceDataConverter( 1048): Caused by: java.lang.NoSuchMethodException: com.android.settings.network.telephony.CallsDefaultSubscriptionController.<init> [class android.content.Context, class java.lang.String]
+10-12 01:03:24.211 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.applications.credentials.CredentialManagerPreferenceController
+10-12 01:03:24.211 W/SliceDataConverter( 1048): Caused by: java.lang.reflect.InvocationTargetException
+10-12 01:03:24.211 W/SliceDataConverter( 1048): Caused by: java.lang.RuntimeException: Can't create handler inside thread Thread[binder:1048_5,5,main] that has not called Looper.prepare()
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): Error reading snapshot for 10131 from disk
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): java.io.FileNotFoundException: /data/system/recoverablekeystore/snapshots/10131.xml: open failed: ENOENT (No such file or directory)
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): 	at libcore.io.IoBridge.open(IoBridge.java:574)
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): 	at libcore.io.Linux.open(Native Method)
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+10-12 01:03:24.214 E/RecoverySnapshotStorage(  520): 	at libcore.io.IoBridge.open(IoBridge.java:560)
+10-12 01:03:24.276 W/SliceDataConverter( 1048): java.lang.IllegalStateException: Invalid preference controller: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-12 01:03:24.276 W/SliceDataConverter( 1048): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-12 01:03:24.276 W/SliceDataConverter( 1048): Caused by: java.lang.ClassNotFoundException: com.android.settings.applications.appinfo.ManageAppLocalePreferenceController
+10-12 01:03:24.359 W/libc    ( 3023): Access denied finding property "persist.adb.tls_server.enable"
+10-12 01:03:24.359 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): Error reading snapshot for 10131 from disk
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): java.io.FileNotFoundException: /data/system/recoverablekeystore/snapshots/10131.xml: open failed: ENOENT (No such file or directory)
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): 	at libcore.io.IoBridge.open(IoBridge.java:574)
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): 	at libcore.io.Linux.open(Native Method)
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+10-12 01:03:24.611 E/RecoverySnapshotStorage(  520): 	at libcore.io.IoBridge.open(IoBridge.java:560)
+10-12 01:03:24.614 E/keystore2(  158):     3: Error::Rc(r#SYSTEM_ERROR)
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): [WrappingKeyManager] InternalRecoveryServiceException during wrapping key generation [CONTEXT service_id=172 ]
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): android.security.keystore.recovery.InternalRecoveryServiceException: Failed to import secret key.
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): 	at android.security.keystore.recovery.RecoveryController.wrapUnexpectedServiceSpecificException(RecoveryController.java:783)
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): Caused by: android.os.ServiceSpecificException: Failed to import secret key. (code 22)
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3071)
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-12 01:03:24.616 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-12 01:03:24.714 W/NetworkScheduler( 1399): java.lang.IllegalArgumentException: Only the following extra parameter types are supported: Integer, Long, Double, String, Boolean, and nested Bundles with the same restrictions.
+10-12 01:03:24.896 D/SettingsSliceProvider( 1048): java.lang.IllegalStateException: Invalid Slices key from path: wifi_calling
+10-12 01:03:25.075 W/Conscrypt( 1448): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:25.157 E/enyj    ( 1399): java.lang.RuntimeException: ManagedChannel allocation site
+10-12 01:03:25.180 W/Conscrypt( 1448): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:25.192 W/Conscrypt( 1399): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:25.266 W/Conscrypt( 1399): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:25.442 I/AiAiEcho( 1618): Settings changed for uri: content://settings/secure/dropbox:data_app_crash
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): Error reading snapshot for 10131 from disk
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): java.io.FileNotFoundException: /data/system/recoverablekeystore/snapshots/10131.xml: open failed: ENOENT (No such file or directory)
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): 	at libcore.io.IoBridge.open(IoBridge.java:574)
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): Caused by: android.system.ErrnoException: open failed: ENOENT (No such file or directory)
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): 	at libcore.io.Linux.open(Native Method)
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): 	at libcore.io.ForwardingOs.open(ForwardingOs.java:563)
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): 	at libcore.io.BlockGuardOs.open(BlockGuardOs.java:274)
+10-12 01:03:25.762 E/RecoverySnapshotStorage(  520): 	at libcore.io.IoBridge.open(IoBridge.java:560)
+10-12 01:03:25.805 E/keystore2(  158):     3: Error::Rc(r#SYSTEM_ERROR)
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): [WrappingKeyManager] InternalRecoveryServiceException during wrapping key generation [CONTEXT service_id=172 ]
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): android.security.keystore.recovery.InternalRecoveryServiceException: Failed to import secret key.
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): 	at android.security.keystore.recovery.RecoveryController.wrapUnexpectedServiceSpecificException(RecoveryController.java:783)
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): Caused by: android.os.ServiceSpecificException: Failed to import secret key. (code 22)
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3071)
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-12 01:03:25.807 W/RecoverableKeyStoreGms( 1448): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-12 01:03:25.877 W/libc    ( 3023): Access denied finding property "persist.adb.tls_server.enable"
+10-12 01:03:25.881 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
+10-12 01:03:25.937 W/NetworkScheduler( 1399): java.lang.IllegalArgumentException: Only the following extra parameter types are supported: Integer, Long, Double, String, Boolean, and nested Bundles with the same restrictions.
+10-12 01:03:26.370 W/Conscrypt( 1448): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:26.514 W/Conscrypt( 1448): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:27.174 W/ModernMediaScanner( 1636): android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-12 01:03:27.176 W/ModernMediaScanner( 1636): android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-12 01:03:27.659 W/ModernMediaScanner( 1636): android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: files._data (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-12 01:03:27.709 W/MediaProvider( 1636): java.io.IOException: Failed to update quota type for /storage/emulated/0/Android
+10-12 01:03:27.711 W/MediaProvider( 1636): java.io.IOException: Failed to update quota type for /storage/emulated/0/Android/media
+10-12 01:03:28.555 E/A       ( 1725): onError
+10-12 01:03:30.162 D/nativeloader( 4741): InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+10-12 01:03:30.163 D/nativeloader( 4741): InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+10-12 01:03:30.183 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:30.676 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:30.676 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:30.690 E/VS.BluetoothShim( 1669): Error locating SCO method
+10-12 01:03:30.690 E/VS.BluetoothShim( 1669): java.lang.NoSuchMethodException: android.bluetooth.BluetoothHeadset.startScoUsingVirtualVoiceCall [class android.bluetooth.BluetoothDevice]
+10-12 01:03:31.192 W/OverlayManager(  520): service 'idmap' died
+10-12 01:03:31.803 W/Conscrypt( 1399): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:32.000 W/Conscrypt( 1399): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:32.358 W/libc    ( 3023): Access denied finding property "persist.adb.tls_server.enable"
+10-12 01:03:32.358 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
+10-12 01:03:34.068 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:34.094 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:34.094 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:34.101 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.googlequicksearchbox(change count changed - expected 2  but was 1), resolution=null}]
+10-12 01:03:35.174 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.messaging#com.google.android.apps.messaging(change count changed - expected 2  but was 1), resolution=null}]
+10-12 01:03:35.195 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.messaging#com.google.android.apps.messaging(change count changed - expected 2  but was 1), resolution=null}]
+10-12 01:03:35.242 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:35.280 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:35.280 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:35.389 D/nativeloader( 4903): InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+10-12 01:03:35.390 D/nativeloader( 4903): InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+10-12 01:03:35.535 W/RcsClientLib( 4289): Error while stopping RCS engine.
+10-12 01:03:35.536 W/RcsClientLib( 4289): java.lang.IllegalStateException: JibeService Not Initialized
+10-12 01:03:35.536 W/RcsClientLib( 4289): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-12 01:03:35.536 W/RcsClientLib( 4289): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-12 01:03:35.536 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-12 01:03:35.536 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-12 01:03:35.536 W/RcsClientLib( 4289): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-12 01:03:35.584 W/RcsClientLib( 4289): Error while stopping RCS engine.
+10-12 01:03:35.584 W/RcsClientLib( 4289): java.lang.IllegalStateException: JibeService Not Initialized
+10-12 01:03:35.584 W/RcsClientLib( 4289): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-12 01:03:35.584 W/RcsClientLib( 4289): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-12 01:03:35.584 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-12 01:03:35.584 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-12 01:03:35.584 W/RcsClientLib( 4289): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-12 01:03:35.589 W/RcsClientLib( 4289): Error while stopping RCS engine.
+10-12 01:03:35.589 W/RcsClientLib( 4289): java.lang.IllegalStateException: JibeService Not Initialized
+10-12 01:03:35.589 W/RcsClientLib( 4289): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-12 01:03:35.589 W/RcsClientLib( 4289): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-12 01:03:35.589 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-12 01:03:35.589 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-12 01:03:35.589 W/RcsClientLib( 4289): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-12 01:03:35.692 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.messaging.auto#com.google.android.apps.messaging(change count changed - expected 2  but was 1), resolution=null}]
+10-12 01:03:35.888 W/RcsClientLib( 4289): Error while stopping RCS engine.
+10-12 01:03:35.888 W/RcsClientLib( 4289): java.lang.IllegalStateException: JibeService Not Initialized
+10-12 01:03:35.888 W/RcsClientLib( 4289): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-12 01:03:35.888 W/RcsClientLib( 4289): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-12 01:03:35.888 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-12 01:03:35.888 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-12 01:03:35.888 W/RcsClientLib( 4289): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-12 01:03:36.402 E/BugleRcsEngine( 4903): [2] JibeService.onDestroy: JibeService: onDestroy() unregister factory exception: java.lang.IllegalArgumentException: Receiver not registered: com.google.android.ims.receiver.sip.DebugOptionsReceiver@23b18ba
+10-12 01:03:36.976 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:37.261 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:37.535 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:37.579 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:37.769 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:38.104 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:38.143 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:38.143 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:38.270 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:38.374 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:38.437 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:38.516 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:38.585 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:38.585 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:39.240 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:39.325 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:39.325 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:39.336 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:39.818 W/RcsClientLib( 4289): Error while stopping RCS engine.
+10-12 01:03:39.819 W/RcsClientLib( 4289): java.lang.IllegalStateException: JibeService Not Initialized
+10-12 01:03:39.819 W/RcsClientLib( 4289): 	at android.os.Parcel.createExceptionOrNull(Parcel.java:3065)
+10-12 01:03:39.819 W/RcsClientLib( 4289): 	at android.os.Parcel.createException(Parcel.java:3041)
+10-12 01:03:39.819 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:3024)
+10-12 01:03:39.819 W/RcsClientLib( 4289): 	at android.os.Parcel.readException(Parcel.java:2966)
+10-12 01:03:39.819 W/RcsClientLib( 4289): 	at com.google.android.aidl.BaseProxy.transactAndReadExceptionReturnVoid(PG:3)
+10-12 01:03:39.959 W/BaseSearchIndex( 1048): Error initial controller
+10-12 01:03:39.977 E/HardwareInfoFeatureProviderImpl( 1048): java.lang.NumberFormatException: For input string: "E"
+10-12 01:03:39.995 W/BaseSearchIndex( 1048): Error initial controller
+10-12 01:03:40.012 E/HardwareInfoFeatureProviderImpl( 1048): java.lang.NumberFormatException: For input string: "E"
+10-12 01:03:40.026 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.028 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.066 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.072 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.092 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.095 E/SystemServiceRegistry( 1048): android.os.ServiceManager$ServiceNotFoundException: No service published for: ethernet
+10-12 01:03:40.108 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.109 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.146 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.147 W/BaseSearchIndex( 1048): Error initial controller
+10-12 01:03:40.181 W/ActivityManager(  520): Scheduling restart of crashed service com.google.android.settings.intelligence/.modules.routines.impl.ComputeNewInferencesJobService in 1000ms for connection
+10-12 01:03:40.181 W/ActivityManager(  520): Scheduling restart of crashed service com.google.android.settings.intelligence/.modules.routines.impl.RoutinesJobIntentService in 11000ms for connection
+10-12 01:03:40.182 W/ActivityManager(  520): Scheduling restart of crashed service com.google.android.settings.intelligence/.modules.appsearchindexing.impl.AppSearchIndexUpdateJobService in 21000ms for connection
+10-12 01:03:40.182 W/ActivityManager(  520): Scheduling restart of crashed service com.google.android.settings.intelligence/.modules.routines.impl.PruneDatabaseJobService in 31000ms for connection
+10-12 01:03:40.327 E/BugleRcsEngine( 4903): [2] JibeService.onDestroy: JibeService: onDestroy() unregister factory exception: java.lang.IllegalArgumentException: Receiver not registered: com.google.android.ims.receiver.sip.DebugOptionsReceiver@23b18ba
+10-12 01:03:40.368 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.371 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:40.740 I/binder  (    0): undelivered transaction 372195, process died.
+10-12 01:03:40.742 I/binder  (    0): undelivered transaction 372456, process died.
+10-12 01:03:40.745 I/binder  (    0): undelivered transaction 372196, process died.
+10-12 01:03:40.820 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:40.891 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:40.945 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:40.945 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:40.989 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.121 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:41.152 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.226 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:41.226 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:41.386 E/PhoneInterfaceManager( 1047): isVoNrEnabled: CommandException: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+10-12 01:03:41.393 E/PhoneInterfaceManager( 1047): isVoNrEnabled: CommandException: com.android.internal.telephony.CommandException: REQUEST_NOT_SUPPORTED
+10-12 01:03:41.395 D/nativeloader( 5044): InitLlndkLibrariesProduct: libEGL.so:libGLESv1_CM.so:libGLESv2.so:libGLESv3.so:libRS.so:libandroid_net.so:libbinder_ndk.so:libc.so:libcgrouprc.so:libclang_rt.asan-x86_64-android.so:libcom.android.tethering.connectivity_native.so:libdl.so:libft2.so:liblog.so:libm.so:libmediandk.so:libnativewindow.so:libneuralnetworks.so:libselinux.so:libsync.so:libvndksupport.so:libvulkan.so
+10-12 01:03:41.396 D/nativeloader( 5044): InitVndkspLibrariesProduct: android.hardware.common-V2-ndk.so:android.hardware.common.fmq-V1-ndk.so:android.hardware.graphics.allocator-V2-ndk.so:android.hardware.graphics.common-V4-ndk.so:android.hardware.graphics.common@1.0.so:android.hardware.graphics.common@1.1.so:android.hardware.graphics.common@1.2.so:android.hardware.graphics.composer3-V1-ndk.so:android.hardware.graphics.mapper@2.0.so:android.hardware.graphics.mapper@2.1.so:android.hardware.graphics.mapper@3.0.so:android.hardware.graphics.mapper@4.0.so:android.hardware.renderscript@1.0.so:android.hidl.memory.token@1.0.so:android.hidl.memory@1.0-impl.so:android.hidl.memory@1.0.so:android.hidl.safe_union@1.0.so:libRSCpuRef.so:libRSDriver.so:libRS_internal.so:libbase.so:libbcinfo.so:libblas.so:libc++.so:libcompiler_rt.so:libcutils.so:libdmabufheap.so:libgralloctypes.so:libhardware.so:libhidlbase.so:libhidlmemory.so:libion.so:libjsoncpp.so:liblzma.so:libprocessgroup.so:libunwindstack.so:libutils.so:libutilscallstack.so:libz.so
+10-12 01:03:41.466 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:41.478 W/WifiService(  520): Permission violation - getConfiguredNetworks not allowed for uid=10118, packageName=com.google.android.settings.intelligence, reason=java.lang.SecurityException: UID 10118 has no location permission
+10-12 01:03:41.485 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.510 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:41.533 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:41.533 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:41.543 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:41.607 W/libc    ( 1048): Access denied finding property "ro.vendor.aware_available"
+10-12 01:03:41.615 W/BaseSearchIndex( 1048): Error initial controller
+10-12 01:03:41.650 E/JavaBinder( 1048): *** Uncaught remote exception! Exceptions are not yet supported across processes. Client PID 4085 UID 10118.
+10-12 01:03:41.650 E/JavaBinder( 1048): android.database.StaleDataException: Attempted to access a cursor after it has been closed.
+10-12 01:03:41.672 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.693 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.743 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.782 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:41.797 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:41.797 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:41.802 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.811 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:41.944 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.013 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:42.014 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.libraries.search.device#com.google.android.tts(change count changed - expected 1  but was 0), resolution=null}]
+10-12 01:03:42.014 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.libraries.search.audio.device#com.google.android.tts(change count changed - expected 1  but was 0), resolution=null}]
+10-12 01:03:42.047 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:42.047 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:42.050 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.search.transcription.device#com.google.android.tts(change count changed - expected 2  but was 0), resolution=null}]
+10-12 01:03:42.062 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.064 W/AsyncOperation( 1399): OperationException[Status{statusCode=Stale snapshot for com.google.android.apps.search.transcription.device#com.google.android.tts(change count changed - expected 2  but was 0), resolution=null}]
+10-12 01:03:42.175 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.230 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.274 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.285 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:42.289 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.337 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:42.337 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:42.367 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.386 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.474 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.535 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.539 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.558 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:42.578 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:42.578 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:42.624 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.699 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.726 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.773 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.801 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.826 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.879 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.889 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.912 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:42.925 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.029 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.100 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.115 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:43.135 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:43.135 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:43.137 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.246 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:43.276 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.292 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:43.292 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:43.461 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.468 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.513 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:43.543 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:43.554 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:43.554 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:43.659 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/08202014-metadata.txt: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/08202014-metadata.txt
+10-12 01:03:43.664 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/08202014-pins.txt: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/08202014-pins.txt
+10-12 01:03:43.791 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/05132026-sms-denylist-metadata.txt: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/05132026-sms-denylist-metadata.txt
+10-12 01:03:43.816 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/05132026-sms-denylist.txt: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/05132026-sms-denylist.txt
+10-12 01:03:44.031 I/NamespaceManager( 1399): Package com.google.android.crashrecovery name not found! Using module version.
+10-12 01:03:44.311 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/model.smfb.metadata: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/model.smfb.metadata
+10-12 01:03:44.356 W/A       ( 1725): Can't format flag AndroidGsaVelourJars__velour_crashtest_jar__name to integer.
+10-12 01:03:44.385 W/CorpusConfigHelper( 1725): android.util.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 123 column 2
+10-12 01:03:44.385 W/CorpusConfigHelper( 1725): 	at android.util.JsonReader.syntaxError(JsonReader.java:1162)
+10-12 01:03:44.394 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/model.smfb: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/model.smfb
+10-12 01:03:44.632 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/en.fb.metadata: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/en.fb.metadata
+10-12 01:03:44.655 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/en.fb: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/en.fb
+10-12 01:03:44.740 W/NetworkScheduler( 1399): java.lang.IllegalArgumentException: Only the following extra parameter types are supported: Integer, Long, Double, String, Boolean, and nested Bundles with the same restrictions.
+10-12 01:03:44.784 W/libc    ( 3023): Access denied finding property "persist.adb.tls_server.enable"
+10-12 01:03:44.784 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
+10-12 01:03:44.932 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/en.model.metadata: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/en.model.metadata
+10-12 01:03:44.959 W/ModernMediaScanner( 1636): Failed to visit /data/data/com.android.providers.downloads/cache/en.model: java.nio.file.NoSuchFileException: /data/data/com.android.providers.downloads/cache/en.model
+10-12 01:03:45.058 W/TapAndPay( 1399): java.lang.NullPointerException: NfcAdapter is null
+10-12 01:03:45.259 W/Conscrypt( 1448): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:45.296 W/Conscrypt( 1448): Could not set socket write timeout: java.net.SocketException: Socket closed
+10-12 01:03:45.688 W/libc    ( 3023): Access denied finding property "persist.adb.tls_server.enable"
+10-12 01:03:45.692 W/libc    ( 3023): Access denied finding property "service.adb.tls.port"
+10-12 01:03:45.900 W/GLSUser ( 1399): [AppCertManager] Exception while requesting key: 
+10-12 01:03:45.900 W/GLSUser ( 1399): java.io.IOException: Invalid device key response.

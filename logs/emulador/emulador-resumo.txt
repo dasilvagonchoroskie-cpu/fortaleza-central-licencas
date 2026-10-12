@@ -1,0 +1,10 @@
+Android 14
+=== 1) 2.3 e depois 3.0 por cima ===
+Success
+Success
+1-por-cima-da-2.3: FECHOU (processo morto)
+=== 2) instalacao do zero ===
+Success
+2-do-zero: FECHOU (processo morto)
+3-segunda-abertura: FECHOU (processo morto)
+resultado: FALHOU
