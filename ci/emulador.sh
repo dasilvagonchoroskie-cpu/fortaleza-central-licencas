@@ -19,7 +19,7 @@ adb shell getprop ro.build.version.release | sed 's/^/Android /' > "$OUT/emulado
 
 abrir() {
   adb shell am force-stop "$PKG" || true
-  adb shell monkey -p "$PKG" -c android.intent.category.LAUNCHER 1 > /dev/null 2>&1 || true
+  adb shell am start -W -n "$PKG/.MainActivity" 2>&1 | tee -a "$OUT/emulador-resumo.txt" || true
 }
 
 conferir() {
@@ -33,10 +33,10 @@ conferir() {
     echo "$nome: FECHOU (processo morto)" | tee -a "$OUT/emulador-resumo.txt"
     FALHOU=1
   fi
+  adb logcat -d -b crash -v time > "$OUT/emulador-crash-$nome.txt" 2>/dev/null || true
   adb logcat -d -v time > "$OUT/logcat-completo-$nome.txt" 2>/dev/null || true
-  grep -E "AndroidRuntime|FATAL|Exception|Error|flutter|$PKG|WorkManager|libc|DEBUG|crash|died|ANR" \
-    "$OUT/logcat-completo-$nome.txt" | tail -300 > "$OUT/emulador-logcat-$nome.txt" || true
-  tail -c 300000 "$OUT/logcat-completo-$nome.txt" > "$OUT/emulador-logcat-final-$nome.txt" || true
+  grep -E " AndroidRuntime|DEBUG   |F/libc|F/DEBUG|$PKG|flutter|WM-|WorkManager|ActivityManager.*(Start proc|died|crash)|ActivityTaskManager.*$PKG" \
+    "$OUT/logcat-completo-$nome.txt" | tail -400 > "$OUT/emulador-logcat-$nome.txt" || true
   rm -f "$OUT/logcat-completo-$nome.txt"
 }
 
