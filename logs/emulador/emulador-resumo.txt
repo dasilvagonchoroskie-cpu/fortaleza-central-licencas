@@ -5,31 +5,34 @@ Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
 LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-TotalTime: 3536
-WaitTime: 3544
+TotalTime: 2876
+WaitTime: 2894
 Complete
 Success
 Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
-LaunchState: UNKNOWN (0)
+LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-WaitTime: 401
+TotalTime: 3485
+WaitTime: 3492
 Complete
-1-por-cima-da-2.3: FECHOU (processo morto)
+1-por-cima-da-2.3: ABERTA (processo vivo)
 === 2) instalacao do zero ===
 Success
 Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
-LaunchState: UNKNOWN (0)
+LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-WaitTime: 223
+TotalTime: 2367
+WaitTime: 2381
 Complete
-2-do-zero: FECHOU (processo morto)
+2-do-zero: ABERTA (processo vivo)
 Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
-LaunchState: UNKNOWN (0)
+LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-WaitTime: 101
+TotalTime: 2135
+WaitTime: 2139
 Complete
-3-segunda-abertura: FECHOU (processo morto)
-resultado: FALHOU
+3-segunda-abertura: ABERTA (processo vivo)
+resultado: OK
