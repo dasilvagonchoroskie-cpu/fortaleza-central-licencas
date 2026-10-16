@@ -6,7 +6,18 @@ aparece a tela de **Pedir liberação** (nome + WhatsApp → código de
 verificação → o dono libera na Central → o app abre sozinho), o **teste
 grátis** (se o app tiver) e a **chave de ativação**.
 
-## Ligar num app novo (4 passos)
+## Jeito automático (sem programar)
+
+Rode o integrador, que faz os 4 passos abaixo sozinho:
+
+```bash
+python3 ferramentas/integrar-licenca.py --repo /caminho/do/app --apelido meuapp --nome "Meu App" --icone shield
+```
+
+Detalhes em `ferramentas/README.md`. Os passos à mão continuam abaixo, caso
+queira fazer ou conferir manualmente.
+
+## Ligar num app novo (4 passos, à mão)
 
 1. **pubspec.yaml**
 
