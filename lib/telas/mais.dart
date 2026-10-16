@@ -103,13 +103,51 @@ class _TelaMaisState extends State<TelaMais> {
       padding: const EdgeInsets.fromLTRB(16, 12, 16, 32),
       children: [
         Cartao(
-          padding: const EdgeInsets.fromLTRB(16, 8, 8, 8),
-          child: SwitchListTile(
-            contentPadding: EdgeInsets.zero,
-            title: Text('Avisar pedido novo', style: titulo()),
-            subtitle: Text('O celular confere a cada 15 minutos e mostra uma notificação quando chega pedido.', style: dica),
-            value: c.avisosLigados,
-            onChanged: (v) => c.ligarAvisos(v),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                title: Text('Avisar pedido novo', style: titulo()),
+                subtitle: Text(
+                  'A Central fica vigiando os pedidos e mostra uma notificação na barra assim que chega um — mesmo fechada.',
+                  style: dica,
+                ),
+                value: c.avisosLigados,
+                onChanged: (v) => c.ligarAvisos(v),
+              ),
+              if (c.avisosLigados) ...[
+                const SizedBox(height: 4),
+                OutlinedButton.icon(
+                  onPressed: () async {
+                    final ok = await c.testarAviso();
+                    if (!context.mounted) return;
+                    if (ok) {
+                      avisar(context, 'Mandei uma notificação de teste. Veja na barra de avisos.');
+                    } else {
+                      avisar(context, 'O aviso está bloqueado. Toque em "Liberar notificação" e permita.', erro: true);
+                    }
+                  },
+                  icon: const Icon(Icons.notifications_active_outlined),
+                  label: const Text('Testar o aviso agora'),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: () async {
+                    await c.pedirIsencaoBateria();
+                    if (context.mounted) avisar(context, 'Se aparecer, toque em Permitir para o aviso chegar sempre.');
+                  },
+                  icon: const Icon(Icons.battery_saver_outlined),
+                  label: const Text('Deixar o aviso mais firme (bateria)'),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Enquanto estiver ligado, aparece um aviso fixo discreto "Vigiando pedidos" — é ele que mantém a Central atenta. '
+                  'Se os avisos não chegarem, toque em "Testar o aviso agora" e permita a notificação; e em "bateria", escolha Não otimizar.',
+                  style: dica,
+                ),
+              ],
+            ],
           ),
         ),
         Cartao(

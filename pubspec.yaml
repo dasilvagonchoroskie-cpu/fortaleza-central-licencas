@@ -4,7 +4,7 @@ publish_to: 'none'
 
 # versao visivel + codigo de versao. A esteira troca o codigo pelo numero da
 # montagem (1000 + n), sempre maior que o da Central 2.x (100 + n).
-version: 3.0.1+1000
+version: 3.1.0+1000
 
 environment:
   sdk: ">=3.8.0 <4.0.0"

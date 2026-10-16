@@ -4,6 +4,11 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- O aviso de pedido volta a funcionar sozinho depois de reiniciar o celular. -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- Monitor em primeiro plano: fica vigiando os pedidos para avisar na hora. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <!-- Para o Android nao "economizar" o monitor e segurar os avisos. -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:label="Central de Licenças"
@@ -28,11 +33,30 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!-- Aviso de pedido novo (agendador do Android, 15 em 15 minutos). -->
+        <!-- Aviso de pedido novo (agendador do Android, 15 em 15 min, reserva). -->
         <service
             android:name=".AvisosJob"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="false" />
+        <!-- Monitor em primeiro plano: confere a cada ~45 s e avisa na hora.
+             Nao fecha ao tirar o app dos recentes. -->
+        <service
+            android:name=".MonitorService"
+            android:exported="false"
+            android:stopWithTask="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Monitorar pedidos de liberacao da Central de Licencas (uso interno, nao vai para a Play Store)" />
+        </service>
+        <!-- Religa o monitor depois de reiniciar o celular. -->
+        <receiver
+            android:name=".ReinicioReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

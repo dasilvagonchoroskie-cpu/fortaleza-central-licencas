@@ -130,8 +130,16 @@ class Central extends ChangeNotifier {
     avisosLigados = ligar;
     await _prefs?.setBool(_kAvisos, ligar);
     await _configurarAvisos(pedirPermissao: ligar);
+    // Ao ligar, pede tambem para o Android nao segurar o monitor (bateria).
+    if (ligar) await Avisos.pedirIsencaoBateria(ativo: usarAvisos);
     notifyListeners();
   }
+
+  /// Mostra uma notificacao de teste. false = permissao de notificacao negada.
+  Future<bool> testarAviso() => Avisos.testar(ativo: usarAvisos);
+
+  /// Abre a tela do Android para liberar o monitor da economia de bateria.
+  Future<void> pedirIsencaoBateria() => Avisos.pedirIsencaoBateria(ativo: usarAvisos);
 
   Future<void> _configurarAvisos({bool pedirPermissao = false}) async {
     await Avisos.configurar(

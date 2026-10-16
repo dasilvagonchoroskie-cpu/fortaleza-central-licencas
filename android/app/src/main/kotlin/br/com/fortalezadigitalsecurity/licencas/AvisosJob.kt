@@ -46,6 +46,9 @@ class AvisosJob : JobService() {
                     .apply()
                 val agenda = contexto.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
                 if (ligado && servidor.isNotEmpty() && senha.isNotEmpty()) {
+                    // Principal: o monitor em primeiro plano (confere a cada ~45 s).
+                    MonitorService.ligar(contexto)
+                    // Reserva: o agendador de 15 em 15 min, caso o sistema encerre o monitor.
                     val tarefa = JobInfo.Builder(ID_TAREFA, ComponentName(contexto, AvisosJob::class.java))
                         .setPeriodic(15 * 60 * 1000L)
                         .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
@@ -53,6 +56,7 @@ class AvisosJob : JobService() {
                         .build()
                     agenda.schedule(tarefa)
                 } else {
+                    MonitorService.desligar(contexto)
                     agenda.cancel(ID_TAREFA)
                 }
             } catch (erro: Exception) {
@@ -94,6 +98,17 @@ class AvisosJob : JobService() {
             }
         }
 
+        /** Mostra uma notificacao de teste, para o dono confirmar que chega. */
+        fun testar(contexto: Context): Boolean {
+            if (Build.VERSION.SDK_INT >= 33 &&
+                contexto.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+            ) {
+                return false
+            }
+            notificar(contexto, "Aviso de teste", "Funcionou! É assim que você vai ser avisado quando chegar um pedido de liberação.")
+            return true
+        }
+
         private fun notificar(contexto: Context, titulo: String, corpo: String) {
             if (Build.VERSION.SDK_INT >= 33 &&
                 contexto.checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
@@ -128,6 +143,11 @@ class AvisosJob : JobService() {
         Thread {
             try {
                 conferir(applicationContext)
+                // O monitor morreu? O agendador de reserva tenta levantar de novo.
+                val prefs = applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+                if (prefs.getBoolean(LIGADO, false) && (prefs.getString(SENHA, "") ?: "").isNotEmpty()) {
+                    MonitorService.ligar(applicationContext)
+                }
             } catch (erro: Exception) {
                 // Sem internet ou servidor fora: tenta de novo na proxima rodada.
             }
