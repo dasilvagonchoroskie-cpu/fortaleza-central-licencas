@@ -5,16 +5,16 @@ Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
 LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-TotalTime: 2876
-WaitTime: 2894
+TotalTime: 3864
+WaitTime: 3909
 Complete
 Success
 Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
 LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-TotalTime: 3485
-WaitTime: 3492
+TotalTime: 3072
+WaitTime: 3079
 Complete
 1-por-cima-da-2.3: ABERTA (processo vivo)
 === 2) instalacao do zero ===
@@ -23,16 +23,16 @@ Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
 LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-TotalTime: 2367
-WaitTime: 2381
+TotalTime: 1629
+WaitTime: 1636
 Complete
 2-do-zero: ABERTA (processo vivo)
 Starting: Intent { cmp=br.com.fortalezadigitalsecurity.licencas/.MainActivity }
 Status: ok
 LaunchState: COLD
 Activity: br.com.fortalezadigitalsecurity.licencas/.MainActivity
-TotalTime: 2135
-WaitTime: 2139
+TotalTime: 1366
+WaitTime: 1370
 Complete
 3-segunda-abertura: ABERTA (processo vivo)
 resultado: OK
